@@ -1,0 +1,27 @@
+{
+    "userMobile": "18602266779",
+    "term":18,
+    "goodsInfo": {
+        "goodsId": 3,
+        "title": "abc",
+        "subTitle": "新手机",
+        "goodsSource": "京东",
+        "goodsAmount": 4888.0,
+        "defaultPayPercent": 20,
+        "defaultPayAmount": 456,
+        "defaultPhaseAmount": 123,
+        "defaultLoanTerm": 12,
+        "description": "1200万|内存：16G|屏幕：5.2英寸",
+        "goodsListImagePath": "",
+        "goodsDetailImagePath": "",
+        "createTime": "",
+        "productInfoId": "233",
+        "periodList": [9, 12, 18],
+        "minDownPayment": 1000,
+        "maxDownPayment": 2000,
+        "goodsColor": "粉色",
+        "insuranceName": "碎屏保护",
+        "productInfoId": 233,
+        "isLogin": 1
+    }
+}

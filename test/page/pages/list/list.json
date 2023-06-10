@@ -1,0 +1,32 @@
+{
+    "goodsList": [
+        {
+            "goodsId": 123,
+            "title": "abc",
+            "goodsAmount": 123,
+            "defaultPayPercent": 20,
+            "defaultPayAmount": 456,
+            "defaultPhaseAmount": 123,
+            "defaultLoanTerm": 12,
+            "description": "1200万|内存：16G|屏幕：5.2英寸",
+            "goodsListImagePath": "",
+            "goodsDetailImagePath": "",
+            "createTime": "",
+            "productInfoId": ""
+        },
+        {
+            "goodsId": 123,
+            "title": "abc",
+            "goodsAmount": 123,
+            "defaultPayPercent": 20,
+            "defaultPayAmount": 456,
+            "defaultPhaseAmount": 123,
+            "defaultLoanTerm": 12,
+            "description": "1200万|内存：16G|屏幕：5.2英寸",
+            "goodsListImagePath": "",
+            "goodsDetailImagePath": "",
+            "createTime": "",
+            "productInfoId": ""
+        }
+    ]
+}

@@ -1,0 +1,218 @@
+#set($title = "第一式 开门见山")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/step.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main page-step1">
+    <p class="help-info">亲，为你承包整个分期服务，只需验证基本信息喔！</p>
+
+    <div class="step1-bar"></div>
+
+    <form class="step1-2-form">
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">现在住址</label>
+            <div class="form-content">
+                <div class="ui-select">
+                    <span class="js-text city-ui-select-text">
+                        请选择
+                    </span>
+                    <select name="province"></select>
+                </div>
+                <div class="ui-select">
+                    <span class="js-text city-ui-select-text">
+                        请选择
+                    </span>
+                    <select name="city"></select>
+                </div>
+                <div class="ui-select">
+                    <span class="js-text city-ui-select-text">
+                        请选择
+                    </span>
+                    <select name="district"></select>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">现在住址-详细</label>
+            <div class="form-content">
+                <input type="text" name="address" placeholder="详细居住地址" value="$!personalInfo.address">
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">住房类型</label>
+            <div class="form-content">
+                <div class="ui-select">
+                    <span class="js-text">
+                        请选择
+                    </span>
+                    <select name="housingType">
+                        <option value="">请选择</option>
+                        <option value="1">自有住房</option>
+                        <option value="2">出租房</option>
+                        <option value="3">父母房</option>
+                        <option value="4">宿舍</option>
+                        <option value="5">公租房/廉租房</option>
+                    </select>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">婚姻状况</label>
+            <div class="form-content-block">
+                <div class="ui-field-wrap">
+                    <a href="#" class="ui-radio">
+                        未婚
+                        <input type="radio" name="marriageStatus" value="1">
+                    </a>
+
+                    <a href="#" class="ui-radio">
+                        已婚有子女
+                        <input type="radio" name="marriageStatus" value="2">
+                    </a>
+
+                    <a href="#" class="ui-radio">
+                        已婚无子女
+                        <input type="radio" name="marriageStatus" value="3">
+                    </a>
+
+                    <a href="#" class="ui-radio">
+                        其他
+                        <input type="radio" name="marriageStatus" value="4">
+                    </a>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">教育情况</label>
+            <div class="form-content-block">
+                <div class="ui-field-wrap">
+                    <a href="#" class="ui-radio">
+                        初中及以下
+                        <input type="radio" name="eduStatus" value="1">
+                    </a>
+
+                    <a href="#" class="ui-radio">
+                        高中
+                        <input type="radio" name="eduStatus" value="2">
+                    </a>
+
+                    <a href="#" class="ui-radio">
+                        专科
+                        <input type="radio" name="eduStatus" value="3">
+                    </a>
+
+                    <a href="#" class="ui-radio">
+                        本科
+                        <input type="radio" name="eduStatus" value="4">
+                    </a>
+
+                    <a href="#" class="ui-radio">
+                        研究生以上
+                        <input type="radio" name="eduStatus" value="5">
+                    </a>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">紧急联系人</label>
+            <div class="form-content">
+                <input type="text" name="emergencyContact" placeholder="输入联系人姓名" value="$!personalInfo.emergencyContact">
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">紧急联系人电话</label>
+            <div class="form-content">
+                <input type="text" name="emergencyContactPhone" placeholder="紧急联系人电话" value="$!personalInfo.emergencyContactPhone">
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">紧急联系人关系</label>
+            <div class="form-content">
+                <div class="ui-select">
+                    <span class="js-text">
+                        请选择
+                    </span>
+                    <select name="emergencyContactType">
+                        <option value="">请选择</option>
+                        <option value="1">父母</option>
+                        <option value="2">夫妻</option>
+                        <option value="3">子女</option>
+                        <option value="4">朋友</option>
+                        <option value="5">同事</option>
+                    </select>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="btn-wrap js-submit-button-wrap">
+            <button type="button" class="btn-submit js-submit-button">保存,下一步</button>
+        </div>
+    </form>
+
+    <div class="status-lamp js-finish-status" style="display: none;">
+        <span class="icon-lamp"></span>
+        已完成50%
+    </div>
+</div>
+<script>
+
+    function getValue(value) {
+        if (value == 0) {
+            return '';
+        }
+
+        return value;
+    }
+
+    var globalData = {
+        city: '$!personalInfo.city',
+        emergencyContactType: getValue('$!personalInfo.emergencyContactType'),
+        housingType: getValue('$!personalInfo.housingType'),
+        marriageStatus: getValue('$!personalInfo.marriageStatus'),
+        eduStatus: getValue('$!personalInfo.eduStatus'),
+        contractStatus: '$!authActive.contractStatus',
+	    personStatus: '$!authActive.personStatus'
+    };
+
+    console.log(globalData);
+</script>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/apply/step1-2.js"></script>
+#end
+#end

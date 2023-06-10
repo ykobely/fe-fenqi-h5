@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>还款问题帮助</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="/static/styles/pages/help.scss">
+    </head>
+    <body>
+        <div class="questions">
+            <div class="item" id="hk-1">
+                <h5 class="heading">
+                    <span class="icon icon-question-plus-minus"></span>有用分期有哪些费用
+                </h5>
+                <div class="content">
+	                待还款本金、利息和服务费用，不同的待还款金额、首付金额及期数，则其利息和服务费用也有所不同。
+                </div>
+            </div>
+	        <div class="item" id="hk-2">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>如何还款
+		        </h5>
+		        <div class="content">
+			        考虑到轻松便捷和按时还款，绝大部分客户会选择银行代扣的方式，通常您只要在还款日提前5天确保代扣卡里有足够的金额即可，我们会在还款日当天进行代扣。
+		        </div>
+	        </div>
+	        <div class="item">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>为什么个人信用记录很重要
+		        </h5>
+		        <div class="content">
+			        征信记录又叫个人“经济身份证”，在征信报告将要大面积应用于日常生活的今天，打理好个人征信，将免去很多不必要的麻烦。无意中的忘记还款，可能会在信用状况中留下不良记录，而这些记录的累计，很可能会影响日后的信用卡、贷款申请。
+		        </div>
+	        </div>
+	        <div class="item">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>是否可以自助还款
+		        </h5>
+		        <div class="content">
+			        可以的。您可以选择合同的还款计划，查看到每期还款金额，点击还款按钮进入支付页面，选择习惯的支付方式支付即可。
+		        </div>
+	        </div>
+	        <div class="item">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>是否可以提前还款
+		        </h5>
+		        <div class="content">
+			        您只需要在还款到期日前，提前至少一天致电客服热线400 800 5518申请提前还款。
+			        举个例子：小美每月19日还款，合同分12个月偿还，希望申请提前还款，那么她在每个月19号之前打电话给有用客服人员提出申请
+		        </div>
+	        </div>
+        </div>
+    </body>
+    <script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+    <script src="/static/scripts/pages/ucenter/help.js"></script>
+    <script>
+        $(function(){
+            $('body').removeClass('show-header');
+	        var targetL = location.href.split("#")[1];
+	        $("#" + targetL).trigger('click');
+        })
+    </script>
+</html>

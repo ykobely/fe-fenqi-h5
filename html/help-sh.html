@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>审核问题帮助</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="/static/styles/pages/help.scss">
+    </head>
+    <body>
+        <div class="questions">
+            <div class="item" id="sh-1">
+                <h5 class="heading">
+                    <span class="icon icon-question-plus-minus"></span>审核需要多久
+                </h5>
+                <div class="content">
+	                提交申请后，20分钟出审核结果。
+                </div>
+            </div>
+	        <div class="item" id="sh-2">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>如何确保我能通过分期审核
+		        </h5>
+		        <div class="content">
+			        资料简单、审批速度快、通过率高是有用分期业务的特色，只要您符合条件，并可以提供相应的证明材料，同时满足所有的要求，您就可以通过分期审核。有用分期拥有世界级的自动审核系统，会对您提供的资料进行综合评估，您可以随时关注您的审批状态。
+		        </div>
+	        </div>
+	        <div class="item">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>审核通过之后可以再撤销吗
+		        </h5>
+		        <div class="content">
+			        合同未激活前，可以联系客服申请。
+		        </div>
+	        </div>
+	        <div class="item">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>审核被拒绝后多长时间能再申请
+		        </h5>
+		        <div class="content">
+			        60天
+		        </div>
+	        </div>
+        </div>
+    </body>
+    <script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+    <script src="/static/scripts/pages/ucenter/help.js"></script>
+    <script>
+        $(function(){
+            $('body').removeClass('show-header');
+	        var targetL = location.href.split("#")[1];
+	        $("#" + targetL).trigger('click');
+        })
+    </script>
+</html>

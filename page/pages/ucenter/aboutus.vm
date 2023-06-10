@@ -1,0 +1,212 @@
+#set($title = "关于我们")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/ucenter.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="ucenter">
+    <div class="main">
+        <div class="vm-1">
+            <img src="/static/images/pic/about-1.jpg" alt="">
+        </div>
+        <div class="team-infor">
+            <h2>
+                <b>我们在做什么</b>
+            </h2>
+            <p>有用分期专注于为具有稳定收入来源、</p>
+            <p>对生活有美好追求的年轻客户群体提供有温度的、</p>
+            <p>量身订做的分期服务。</p>
+        </div>
+        <div class="team-box">
+            <div class="high-team">
+                <h2>
+                    <b class="bar-high-1">高管团队</b>
+                </h2>
+                <div class="high-team-dl">
+                    <dl>
+                        <dt>
+                            <img src="/static/images/pic/1_lyn.jpg" alt="">
+                        </dt>
+                        <dd>
+                            <strong>刘雁南</strong>
+                            <p>创始人<br/>首席执行官</p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <img src="/static/images/pic/2_hdc.jpg" alt="">
+                        </dt>
+                        <dd>
+                            <strong>黄大成</strong>
+                            <p>联合创始人<br/> 总裁</p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <img src="/static/images/pic/3_wy.jpg" alt="">
+                        </dt>
+                        <dd>
+                            <strong>万缨</strong>
+                            <p>联合创始人</p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <img src="/static/images/pic/10_szj.jpg" alt="">
+                        </dt>
+                        <dd>
+                            <strong>史志隽</strong>
+                            <p>联合创始人</p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="high-team">
+                <h2>
+                    <b class="bar-high-2">有用分期专家顾问团</b>
+                </h2>
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/4_czw.jpg" alt="">
+                    </dt>
+                    <dd>
+                        <strong>陈志武</strong>
+                        <p>耶鲁大学金融学教授</p>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/5_mn.jpg" alt="">
+                    </dt>
+                    <dd>
+                        <strong>马宁</strong>
+                        <p>领沨资本创始人</p>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/6_zhq.jpg" alt="">
+                    </dt>
+                    <dd>
+                        <strong>张化桥</strong>
+                        <p>香港慢牛投资董事长</p>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/7_lq.jpg" alt="">
+                    </dt>
+                    <dd>
+                        <strong>刘芹</strong>
+                        <p>晨兴资本合伙人</p>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/8_dhp.jpg" alt="">
+                    </dt>
+                    <dd>
+                        <strong>丁海鹏</strong>
+                        <p>贝塔斯曼合伙人</p>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/9_zyh.jpg" alt="">
+                    </dt>
+                    <dd>
+                        <strong>周亚辉</strong>
+                        <p>昆仑万维CEO</p>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="our">
+            <h2>
+                <b class="bar-high-2">我们的优势</b>
+            </h2>
+            <dl>
+                <dt>
+                    <img src="/static/images/pic/ab-u-1.jpg" alt="">
+                </dt>
+                <dd>
+                    <strong>重点用户群</strong>
+                    <p>年轻，有消费能力，熟悉移动互联网</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img src="/static/images/pic/ab-u-2.jpg" alt="">
+                </dt>
+                <dd>
+                    <strong>自助化分期申请</strong>
+                    <p>线上申请，全程不超过10分钟</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img src="/static/images/pic/ab-u-3.jpg" alt="">
+                </dt>
+                <dd>
+                    <strong>与多商户平台合作</strong>
+                    <p>流程灵活易用，实现双赢</p>
+                </dd>
+            </dl>
+        </div>
+        <div class="our slogan">
+            <h2>
+                <b>安全值得信赖</b>
+            </h2>
+            <dl>
+                <dt>
+                    <img src="/static/images/pic/ab-u-4.jpg" alt="">
+                </dt>
+                <dd>
+                    <strong>VC/PE认可</strong>
+                    <p>顶级投资机构保驾护航</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img src="/static/images/pic/ab-u-5.jpg" alt="">
+                </dt>
+                <dd>
+                    <strong>门槛低</strong>
+                    <p>主流手机月付72元起</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img src="/static/images/pic/ab-u-6.jpg" alt="">
+                </dt>
+                <dd>
+                    <strong>安全</strong>
+                    <p>有用保障金计划全面保障投资安全</p>
+                </dd>
+            </dl>
+        </div>
+        <div class="brand">
+            <dl>
+                <dt>
+                    <img src="/static/images/pic/about-2.jpg" alt="">
+                </dt>
+                <dd>
+                    深圳天道计然金融服务有限公司
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+#parse("../pages/common/_nav.vm")
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/common/common.js"></script>
+<script src="/static/scripts/pages/common/delHeader.js"></script>
+
+#end
+#end

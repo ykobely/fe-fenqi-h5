@@ -1,0 +1,40 @@
+#set($title = "找回密码")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/find-password.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <div class="form-box">
+        <form action="" class="find-pass-form">
+            <div class="form-line">
+                <div class="form-val">
+                    <input type="text" placeholder="手机号" class="normal-input">
+                </div>
+            </div>
+            <div class="form-line">
+                <div class="form-val">
+                    <input type="text" placeholder="验证码" class="normal-input">
+                </div>
+                <div class="form-auth disabled">
+                    发送验证码(60)
+                </div>
+            </div>
+            <div class="form-line">
+                <input type="submit" class="btn-submit" value="下一步">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="dialog-warn-tips">
+    <strong>手机号码不能为空</strong>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/common/common.js"></script>
+
+#end
+#end

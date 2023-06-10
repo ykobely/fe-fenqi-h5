@@ -1,0 +1,34 @@
+#set($title = "提交成功")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/success.scss">
+#end
+
+#block('body')
+<div id="layout">
+    #parse("../pages/common/_header.vm")
+    <div class="success-box">
+        <div class="success-img">
+            <img src="/static/images/pic/icons-ok.png" alt="">
+        </div>
+        <dl class="success-tips">
+            <dt>恭喜你，提交成功</dt>
+            <dd>欢迎关注微信公众号“有用分期”，获取更多信息</dd>
+            <dd class="view-ucenter">
+                <a href="/consumer/h5/usercenter/usercenter">查看我的个人中心</a>
+            </dd>
+        </dl>
+    </div>
+    <div id='layout_footer'></div>
+</div>
+<div class="service-contacts" id="footer">
+    <div class="title"><span class="text">关于有用分期</span></div>
+    <div class="content">客服电话：<strong>400-800-5518</strong><br>客服QQ：<strong>4008005518</strong></div>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/report/report.js"></script>
+
+#end
+#end

@@ -1,0 +1,20 @@
+{
+    "recommendGoodsList": [
+        {
+            "goodsId": 123,
+            "goodsListImagePath": "http://image.yyfq.com/goods/3/0/0/0/0/list_3.png?version=1446029748000",
+            "todayApplySum": 0,
+            "title": "iphone",
+            "defaultPhaseAmount": "999.99",
+            "goodsAmount": "6288.00"
+        },
+        {
+            "goodsId": 123,
+            "goodsListImagePath": "http://image.yyfq.com/goods/3/0/0/0/0/list_3.png?version=1446029748000",
+            "todayApplySum": 0,
+            "title": "iphone",
+            "defaultPhaseAmount": "999.99",
+            "goodsAmount": "6288.00"
+        }
+    ]
+}

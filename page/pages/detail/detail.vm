@@ -1,0 +1,143 @@
+#set($title = "商品详情")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/detail.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <div class="detail-banner">
+        <img src="$!goodsInfo.goodsDetailImagePath" alt="">
+    </div>
+    <div class="product-brief">
+        <h2 class="title">$!goodsInfo.title</h2>
+        <h3 class="sub-title">$!goodsInfo.subTitle</h3>
+        <dl>
+            <dt>
+                <span class="label">价格</span>
+                <b>$!goodsInfo.goodsAmount元</b>
+            </dt>
+            <dd>
+                <span class="label">货品: 官网行货</span>
+                <!--
+                <span class="source">
+                    <img src="/static/images/pic/source.jpg" alt="">
+                </span>
+                -->
+            </dd>
+        </dl>
+    </div>
+
+    <form method="post" name="detailForm" class="a-product-form">
+        <div class="form-line">
+            <div class="form-label">
+                <span>颜色</span>
+            </div>
+            <div class="form-val">
+                <span class="type selected">$!goodsInfo.goodsColor</span>
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-label">
+                <span>首付金额</span>
+                <p class="label-tips">(滑动更改)</p>
+            </div>
+            <div class="form-val">
+                <p class="range-min">$!goodsInfo.minDownPayment</p>
+                <div class="range-box">
+                    <input type="range" min="$!goodsInfo.minDownPayment" max="$!goodsInfo.maxDownPayment" step="1" class="js-down-payment" name="downPayment" data-rangeslider value="$downPayment">
+                    <div class="range-val js-range-val">
+                        <output></output>元
+                        <div class="arrow">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <p class="range-max">$!goodsInfo.maxDownPayment</p>
+            </div>
+        </div>
+
+        <div style="display: none">
+            <a href="#" class="ui-radio">  
+                <input type="radio">
+            </a>
+        </div>
+
+        <div class="form-line">
+            <div class="form-val periodBox">
+            </div>
+        </div>
+
+        <div class="servicePacks">
+
+        </div>
+
+        #if(${isLogin} != 1)
+            <div class="form-row form-padding">
+                <div class="form-val">
+                    <input type="tel" placeholder="请输入手机号" class="normal-input" name="phone" id="phone">
+                </div>
+            </div>
+            <div class="form-row js-code" style="display:none;">
+                <div class="form-val">
+                    <input type="tel" placeholder="请输入验证码" class="normal-input" name="phone">
+                </div>
+                <div class="form-auth js-captcha" data-phone-target="#phone" data-type="1">
+                    获取验证码
+                </div>
+            </div>
+            <div class="form-row js-password" style="display:none;">
+                <div class="form-val">
+                    <input type="password" placeholder="请输入登录密码" class="normal-input" name="password">
+                </div>
+            </div>
+        #end
+        <div class="form-line">
+            <div class="submit-box">
+                <input type="submit" class="btn-submit js-submit-button" value="快速申请">
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="dialog-question-tips" style="display:none;">
+    <div class="dialog-question-inner">
+        <div class="dialog-question-header">
+            保险说明
+            <a class="dialog-question-close" href="javascript:void(0);">×</a>
+        </div>
+        <div class="dialog-question-content">
+            <p>1．如借款人在申请表上选择参加保险，表明其同意成为客户服务供应商向中国平安财产保险股份有限公司投保的《平安借款人意外伤害保险》保单的“被保险人”，同意并认可保险金额为贷款本金的100%，并同意指定贷款人为第一受益人，客户服务供应商为第二受益人，如发生保险事故，保险金将由保险公司按照受益顺序直接付给贷款人和客户服务供应商，贷款人和客户服务供应商收到保险金后，免除借款人偿还所欠款项的义务。如果保险金数额超过借款人所欠两者的款项，则超过部分支付给借款人或其家人。</p>
+            <p>2．借款人选择参保的，客户服务供应商有权自行决定是否将借款人以被保险人的身份加入《平安借款人意外伤害保险》保单。</p>
+            <p>3．若客户服务供应商同意借款人以被保险人身份加入《平安借款人意外伤害保险》保单，借款人应向客户服务供应商支付因此而产生的管理成本（“手续费”），该手续费包含在每一期期款中，具体金额以申请表所列“每月还款金额”为准。</p>
+            <p>4．借款人加入保单之后，客户服务供应商仍然有权根据借款人的申请或者任何其他原因，终止借款人的被保险人资格，如保险公司与客户服务供应商之间保单的终止或者客户服务供应商发现借款人就其健康情况作出不真实的陈述等。在上述情况下，客户服务供应商不再向借款人收取手续费。</p>
+            <p>5. 该保单下的任何保险金将直接付至深圳天道计然金融服务有限公司，用于偿还借款人因遭受意外伤害事故导致身故，伤残，及疾病身故导致无法偿还出借人的款项。</p>
+            <p>6. 借款人经过仔细审阅后确认：借款人已经了解关于投保前被保险人患有以下疾病的不能参保“平安借款人意外伤害保险”的约定，并在此声明借款人参保前没有罹患以下疾病：肿瘤、心肌梗塞、白血病、肝硬化、中慢性肝功能衰竭、再生障碍性贫血、先天性疾病、帕金森氏病、精神病、癫痫病、法定传染病、艾滋病等，不如实告知的法律责任由借款人承担。</p>
+            <a class="dialog-question-btn" href="javascript:void(0);">我知道了</a>
+        </div>
+    </div>
+</div>
+
+#if(${isLogin} != 1)
+#parse("../pages/common/_qcode.vm")
+#end
+
+<script>
+    var globalData = {
+        goodsId: '$!goodsInfo.goodsId',
+        productGroupId:'$!goodsInfo.productGroupId',
+        price: parseFloat('$!goodsInfo.goodsAmount', 10),
+        productInfoId: '$!goodsInfo.productInfoId',
+        insuranceName: '$!goodsInfo.insuranceName',
+        servicePacks: "$!servicePackDtos",
+        productId:'$!productId',
+	    fromCart:'$!fromCart'
+    };
+</script>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/detail/detail.js"></script>
+#end
+#end

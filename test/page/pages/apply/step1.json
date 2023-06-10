@@ -1,0 +1,17 @@
+{
+    "userMobile": "18602266779",
+    "personalInfo": {
+        "realName": "郑冰雪",
+        "qq": "123123123",
+        "city": "辽宁省 沈阳市 和平区",
+        "address": "没有了",
+        "bankName": "中国工商银行",
+        "emergencyContactType":4,
+        "emergencyContactPhone":"15600000000",
+        "emergencyContact":"张三",
+        "idCardNo":"43051119900815204X",
+        "marriageStatus":2,
+        "housingType":2,
+        "testName":"测试名"
+    }
+}

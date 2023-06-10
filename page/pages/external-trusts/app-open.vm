@@ -1,0 +1,44 @@
+#set($title = "开启方式")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/help.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <dl class="appOpen">
+        <dt><span>安卓</span></dt>
+        <dd>
+            <p>一、首先在设置 - 应用管理 - 权限管理处找到有用无忧app</p>
+            <p>二、进入权限详情，重新将以下权限设置为允许的状态</p>
+            <ul>
+                <li>获取定位信息</li>
+                <li>获取通讯录</li>
+                <li>获取通话记录</li>
+            </ul>
+	        <p>三、vivo机型的手机的权限管理不再设置里面，在手机自带的i管家里面，请在i管家内进行操作</p>
+	        <p>四、部分安卓机型系统不完善，导致授权失败，请选用店内常规机型提交，并在增信页面授权运营商"</p>
+        </dd>
+    </dl>
+    <div class="cutOff">
+        <span></span><span></span><span></span>
+    </div>
+    <dl class="appOpen">
+        <dt><span>IOS</span></dt>
+        <dd>
+            <p>一、首先进入设置-隐私</p>
+            <p>二、分别进入定位服务，通讯录权限详情页，找到有用无忧app，重新将这两个权限设置为允许的状态</p>
+        </dd>
+    </dl>
+
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/common/common.js"></script>
+<script src="/static/scripts/pages/common/delHeader.js"></script>
+
+
+#end
+#end

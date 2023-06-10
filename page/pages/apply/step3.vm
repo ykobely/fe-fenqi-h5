@@ -1,0 +1,124 @@
+#set($title = "第三式 美女梳妆")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/step.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main page-step3">
+    <p class="help-info">天了噜！传个照，露个脸，信用功力一看便知！</p>
+
+    <div class="step3-bar"></div>
+
+    <div class="status-lamp-small">
+        <span class="icon-lamp"></span>
+        亲，看到照片我们就能放心把商品交给你啦！
+    </div>
+
+    <div class="">
+
+        <div class="photo-upload">
+            <h6 class="photo-upload-title">照片1: 上传身份证正面照</h6>
+
+            <div class="photo-upload-cursor js-photo-upload-wrap">
+                <form action="" method="post" target="iframe-input-1" enctype="multipart/form-data">
+                    <img src="/static/images/photo-bg-1.png">
+                    <span class="icon icon-photo-take-button"></span>
+                    <input type="hidden" name="type" value="1">
+                    <input type="hidden" name="contractId">
+                    <input type="file" name="file" accept="image/*" class="photo-upload-input" data-type="1">
+                    <span class="photo-upload-progress-info">
+                        <span class="photo-upload-progress-info-icon">
+                            <span class="js-photo-info-text photo-info-18"></span>
+                            <span class="js-photo-info-text photo-info-24"></span>
+                        </span>
+                    </span>
+                </form>
+                <iframe name="iframe-input-1" style="display:none;"></iframe>
+            </div>
+
+            <div class="error-message js-error-message" style="text-align:center;" data-type="1">
+                <span class="icon icon-error-message-info"></span>
+                请上传身份证正面照
+            </div>
+        </div>
+
+        <div class="photo-upload">
+            <h6 class="photo-upload-title">照片2: 上传身份证反面照</h6>
+
+            <div class="photo-upload-cursor js-photo-upload-wrap">
+                <form action="" method="post" target="iframe-input-2" enctype="multipart/form-data">
+                    <img src="/static/images/photo-bg-3.png">
+                    <span class="icon icon-photo-take-button"></span>
+                    <input type="hidden" name="type" value="2">
+                    <input type="hidden" name="contractId">
+                    <input type="file" name="file" accept="image/*" class="photo-upload-input" data-type="2">
+                    <span class="photo-upload-progress-info">
+                        <span class="photo-upload-progress-info-icon">
+                            <span class="js-photo-info-text photo-info-18"></span>
+                            <span class="js-photo-info-text photo-info-24"></span>
+                        </span>
+                    </span>
+                </form>
+                <iframe name="iframe-input-2" style="display:none;"></iframe>
+            </div>
+
+            <div class="error-message js-error-message" style="text-align:center;" data-type="2">
+                <span class="icon icon-error-message-info"></span>
+                请上传身份证反面照
+            </div>
+        </div>
+
+        <div class="photo-upload">
+            <h6 class="photo-upload-title">照片3: 本人正面照</h6>
+
+            <div class="photo-upload-cursor js-photo-upload-wrap">
+                <form action="" method="post" target="iframe-input-3" enctype="multipart/form-data">
+                    <img src="/static/images/photo-bg-2.png">
+                    <span class="icon icon-photo-take-button"></span>
+                    <input type="hidden" name="type" value="4">
+                    <input type="hidden" name="contractId">
+                    <input type="file" name="file" accept="image/*" class="photo-upload-input" data-type="4">
+                    <span class="photo-upload-progress-info">
+                        <span class="photo-upload-progress-info-icon">
+                            <span class="js-photo-info-text photo-info-18"></span>
+                            <span class="js-photo-info-text photo-info-24"></span>
+                        </span>
+                    </span>
+                </form>
+                <iframe name="iframe-input-3" style="display:none;"></iframe>
+            </div>
+
+            <div class="error-message js-error-message" style="text-align:center;" data-type="4">
+                <span class="icon icon-error-message-info"></span>
+                请上传本人正面照
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-wrap js-submit-button-wrap">
+        <button type="button" class="btn-submit js-btn-submit">确认提交订单</button>
+    </div>
+</div>
+
+
+<script>
+    var globalData = {
+        images: {
+            "1": "$!picIdfront",
+            "2": "$!picIdback",
+            "4": "$!picCust"
+        },
+        contractStatus: '$!authActive.contractStatus',
+	    imgStatus: '$!authActive.imgStatus'
+    };
+
+    console.log(globalData);
+</script>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/apply/step3.js"></script>
+#end
+#end

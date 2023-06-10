@@ -1,0 +1,8 @@
+<div class="ui-header">
+    <div class="ui-bar">
+        <a href="#" class="goback js-back-btn">
+            <span class="icon"></span>
+        </a>
+        <p class="title">$!title</p>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+#set($title = "找回密码")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/external-trusts.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <dl class="isp-getpswd">
+        <dt>A、拨打运营商官方热线进行修改</dt>
+        <dd>
+            <p>中国移动用户，请拨打10086</p>
+            <p>中国联通用户，请拨打10010</p>
+            <p>中国电信用户，请拨打10000</p>
+        </dd>
+    </dl>
+    <dl class="isp-getpswd"> 
+        <dt>B、进入运营商官网进行修改</dt>
+        <dd>
+            <div>
+                <a class="yidong" href="https://login.10086.cn/html/login/forget_password.html">中国移动</a>
+                <a class="liantong" href="https://uac.10010.com/cust/resetpwd/resetpwd?display=wap&page_type=06&app_code=MOBILE_MALL&redirect_uri=http://m.10010.com/mall-mobile/Login/callback&app_code=MOBILE_MALL&state=http://m.10010.com">中国联通</a>
+                <a class="dianxin" href="http://gd.189.cn/newpassword/reset_new_cdma.jsp">中国电信</a>
+            </div>
+        </dd>
+    </dl>
+
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/common/common.js"></script>
+<script src="/static/scripts/pages/common/delHeader.js"></script>
+
+#end
+#end

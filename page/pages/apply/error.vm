@@ -1,0 +1,46 @@
+#set($title = "友情提醒")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/success.scss">
+#end
+
+#block('body')
+<div id="layout">
+    #parse("../pages/common/_header.vm")
+    <div class="success-box">
+        <div class="success-img">
+            <img src="/static/images/pic/error.jpg" alt="">
+        </div>
+        #if($!{returnMsg.code} == 500)
+            <dl class="success-tips">
+                <dt>亲，系统迷路了！</dt>
+                <dd>“有用”的程序员哥哥正在帮她找回方向。</dd>
+                <dd class="view-ucenter">
+                    <a href="/consumer/h5/index?source=$!source">返回主页</a>
+                </dd>
+            </dl>
+        #else
+            <dl class="success-tips">
+                <dt>$!{returnMsg.msg}</dt>
+                #if ($returnMsg.data.errorDetail)
+                    <dd>${returnMsg.data.errorDetail}</dd>
+                #end
+                <dd class="view-ucenter">
+                    <a href="$!{returnMsg.data.url}">$!{returnMsg.data.text}</a>
+                </dd>
+            </dl>
+        #end
+    </div>
+    <div id='layout_footer'></div>
+</div>
+<div class="service-contacts" id="footer">
+    <div class="title"><span class="text">关于有用分期</span></div>
+    <div class="content">客服电话：<strong>400-800-5518</strong><br>客服QQ：<strong>4008005518</strong></div>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/report/report.js"></script>
+
+#end
+#end

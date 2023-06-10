@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>碎屛保障计划服务包问号里的内容</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/styles/pages/agreement2.scss">
+</head>
+<body>
+<p class="text-indent">
+    借款人在申请过程中选择购买“碎屏保障计划”的，即同意购买由中国平安财产保险股份有限公司（以下简称“平安保险”）提供的“碎屏保服务”，即在服务有效期内，在正常使用中因意外事件（指不可预料、无法控制的突发性事件，包括且仅限于意外跌落、碰撞、外力挤压）直接导致商品的显示屏整体或者部分破裂（以下简称“碎屏事件”），在一年内借款人可享受一次显示屏维修更换服务，维修或更换后的显示屏将享有3个月的免费质保服务。
+</p>
+</body>
+<script type="text/javascript">
+    (function () {
+        var rem, dpr, time, doc = window.document,
+                docEl = doc.documentElement,
+                viewport = doc.querySelector('meta[name="viewport"]'),
+                zoomScale,
+                zoomScaleNum;
+        if (viewport) {
+            //console.warn("将根据已有的meta标签来设置缩放比例");
+            zoomScale = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+            if (zoomScale) {
+                zoomScaleNum = parseFloat(zoomScale[2]);
+                dpr = parseInt(1 / zoomScaleNum);
+            }
+        }
+        if (!dpr && !zoomScaleNum) {
+            // console.warn(“根据未设置meta标签来缩放比例”)
+            var os = (window.navigator.appVersion.match(/android/gi), window.navigator.appVersion.match(/iphone/gi)),
+                    dpr = window.devicePixelRatio;
+            dpr = os ? dpr >= 3 ? 3 : dpr >= 2 ? 2 : 1 : 1;
+            zoomScaleNum = 1 / dpr;
+        }
+        window.addEventListener("resize",
+                function () {
+                    clearTimeout(time);
+                    time = setTimeout(changeRem, 300);
+                }, false);
+
+        //改变基准rem
+        function changeRem() {
+            var docWidth = docEl.getBoundingClientRect().width;
+            // 540 1080P
+            // if(docWidth / dpr > 540){
+            //     docWidth = 540 * dpr;
+            // }
+            rem = docWidth / 360 * 16;
+            docEl.style.fontSize = rem + "px";
+        }
+
+        changeRem();
+    })();
+</script>
+</html>

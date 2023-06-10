@@ -1,0 +1,75 @@
+#set($title = "信用卡证明")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/creditcard-add.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <div class="form-box">
+        <form action="" class="creditcard-add-form">
+            <div class="form-group">
+                <label class="control-label" for="">姓名</label>
+                <div class="form-content">
+                    <input type="text" placeholder="请输入大名" name="realName">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="">卡号</label>
+                <div class="form-content">
+                    <input type="text" placeholder="请输入卡号" name="cardNum">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="">发卡行</label>
+                <div class="form-content">
+                    <div class="ui-select">
+                        <span class="js-text">
+                            请选择
+                        </span>
+                        <select name="cardBank">
+                            <option value="">请选择</option>
+                            <option value="中国工商银行">工商银行</option>
+                            <option value="中国农业银行">农业银行</option>
+                            <option value="中国银行">中国银行</option>
+                            <option value="中国建设银行">建设银行</option>
+                            <option value="交通银行">交通银行</option>
+                            <option value="招商银行">招商银行</option>
+                            <option value="中国邮政储蓄银行">邮政储蓄银行</option>
+                            <option value="广发银行">广发银行</option>
+                            <option value="兴业银行">兴业银行</option>
+                            <option value="中国光大银行">光大银行</option>
+                            <option value="平安银行">平安银行</option>
+                            <option value="中国民生银行">民生银行</option>
+                            <option value="上海浦东发展银行">浦发银行</option>
+                            <option value="北京银行">北京银行</option>
+                            <option value="广州银行">广州银行</option>
+                            <option value="天津银行">天津银行</option>
+                            <option value="渤海银行">渤海银行</option>
+                            <option value="江苏银行">江苏银行</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-lamp-small"><span class="icon-lamp"></span> 仅用于评估您的还款能力</div>
+
+            <div class="btn-wrap">
+                <input type="submit" class="btn-submit js-submit-button" value="确 认">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="dialog-warn-tips js-error-tip">
+    <strong></strong>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/external-trusts/creditcard-add.js"></script>
+
+#end
+#end

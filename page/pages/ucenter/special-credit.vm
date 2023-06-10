@@ -1,0 +1,136 @@
+#set($title = "特别信用")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/ucenter.scss">
+#end
+#block('body_attribute')
+ class="whiteBgColor"
+#end
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="ucenter special">
+    <p class="special-title">认证一下，信用力爆棚！</p>
+    <div class="structure-credit">
+        #if (1 == ${mobileStatus})
+            <a href="javascript:;" class="circle-1 focus">
+                <img src="/static/images/pic/icons-lock.png">
+                运营商
+            </a>
+        #else
+            <a href="/consumer/h5/user/extraCredit/mobile?source=$!source" class="circle-1">运营商<span>（必选）</span></a>
+        #end
+
+        #if (1 == ${taoBaoStatus})
+            <a href="javascript:;" class="circle-2 focus">
+                <img src="/static/images/pic/icons-lock.png">
+                淘宝
+            </a>
+        #else
+            <a href="/consumer/h5/user/extraCredit/taobao?source=$!source" class="circle-2">淘宝</a>
+        #end
+
+        #if (1 == ${creditCardStatus})
+            <a href="/consumer/h5/user/extraCredit/creditCard/show?source=$!source" class="circle-3 focus">
+                <img src="/static/images/pic/icons-lock.png">
+                信用卡
+            </a>
+        #else
+            <a href="/consumer/h5/user/extraCredit/creditCard/add" class="circle-3">信用卡</a>
+        #end
+
+
+        #if (1 == ${sscStatus})
+            <a href="javascript:;" class="circle-4 focus">
+                <img src="/static/images/pic/icons-lock.png">
+                社保
+            </a>
+        #else
+            <a href="/consumer/h5/user/extraCredit/socialSecrityCard/show?source=$!source" class="circle-4">社保</a>
+        #end
+
+        #if (1 == ${jingDongStatus})
+            <a href="javascript:;" class="circle-5 focus">
+                <img src="/static/images/pic/icons-lock.png">
+                京东
+            </a>
+        #else
+            <a href="/consumer/h5/user/extraCredit/jingdong?source=$!source" class="circle-5">京东</a>
+        #end
+    </div>
+</div>
+
+<div class="btn-wrap js-submit-button-wrap">
+    <button type="button" class="btn-submit js-btn-submit">提交订单</button>
+</div>
+
+<div class="dialog-tips" style="display:none;">
+    <div class="dialog-tips-inner">
+        <div class="dialog-tips-cnt">
+            <div>
+                <p>你当前信用授权了<span id="specialNum"></span>项</p>
+                <p>增信越多审批将更容易通过喔！</p>
+            </div>
+        </div>
+    </div>
+    <div class="dialog-bottom-btn">
+        <a href="/consumer/h5/contract/confirm?source=$!source">正式提交</a>
+        <a href="javascript:void(0);" id="js-more-credit">再攒点信用</a>
+    </div>
+</div>
+
+<div class="dialog-tips-first" style="display:none;">
+    <div class="dialog-tips-first-inner">
+        <div class="dialog-tips-first-top">提示</div>
+        <div class="dialog-tips-first-cnt">
+            <p>至少要完成<span>运营商授权</span>才能提交订单！</p>
+            <a href="javascript:void(0);" id="js-authorize">去授权</a>
+        </div>
+    </div>
+</div>
+
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/common/common.js"></script>
+<script>
+    $(function(){
+        $(document).on('click','.js-btn-submit',function(){
+            if('1' != '$!mobileStatus'){
+                $(".dialog-tips-first").show();
+            }else{
+                var count = 0;
+                if('1' == '$!mobileStatus'){
+                    count++;
+                }
+                if('1' == '$!taoBaoStatus'){
+                    count++;
+                }
+                if('1' == '$!creditCardStatus'){
+                    count++;
+                }
+                if('1' == '$!jingDongStatus'){
+                    count++;
+                }
+                if('1' == '$!sscStatus'){
+                    count++;
+                }
+                $("#specialNum").html(count);
+                $(".dialog-tips").show();
+                
+            }
+        });
+
+        $(document).on('click','#js-authorize',function(){
+            $(".dialog-tips-first").hide();
+        });
+        
+        $(document).on('click','#js-more-credit',function(){
+            $(".dialog-tips").hide();
+        });
+
+        
+    })
+</script>
+
+#end
+#end

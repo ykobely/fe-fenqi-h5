@@ -1,0 +1,52 @@
+#set($title = "全部商品")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/all-wares.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+
+<div class="main">
+    <div class="order-bar">
+        <a href="/consumer/h5/goods/list?source=$!source" class="order-1">
+            <strong#if($sortType != "1" && $sortType != "2") class="cur"#end>默认排序</strong>
+        </a>
+        <a href="/consumer/h5/goods/list?sortType=1&sortDirect=0&source=$!source" class="order-2">
+            <strong#if($sortType == "1") class="cur"#end>销量优先</strong>
+        </a>
+        <a href="/consumer/h5/goods/list?sortType=2&sortDirect=0&source=$!source" class="order-3">
+            <strong#if($sortType == "2") class="cur"#end>价格</strong>
+        </a>
+    </div>
+    <div class="wares-list">
+        #foreach($item in $goodsList)
+        <a href="/consumer/h5/goods/detail?goodsId=$!{item.goodsId}&source=$!source">
+            <dl>
+                <dt>
+                    <img src="$!item.goodsListImagePath" alt="">
+                </dt>
+                <dd class="name">$!{item.title}</dd>
+                <dd class="buy">
+                    <p>
+                        <span>月供：¥$!{item.defaultPhaseAmount}x<small>$!{item.defaultLoanTerm}</small></span>
+                    </p>
+                    <p>
+                        <b>马上抢</b>
+                    </p>
+                </dd>
+            </dl>
+        </a>
+        #end
+    </div>
+</div>
+#parse("../pages/common/_nav.vm")
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/list/list.js"></script>
+<script>
+    window.backUrl = '/consumer/h5/index?source=$!source';
+</script>
+#end
+#end

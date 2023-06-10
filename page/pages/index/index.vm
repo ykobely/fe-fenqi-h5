@@ -1,0 +1,110 @@
+#set($title = "有用分期")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/index.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <div class="slides">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="/static/images/pic/banner3.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/static/images/pic/banner4.jpg" alt="">
+                    </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <div class="step">
+        <dl>
+            <dt>
+                <img src="/static/images/pic/step-1.png" alt="">
+            </dt>
+            <dd>信用认证</dd>
+        </dl>
+        <dl>
+            <dt>
+                <img src="/static/images/pic/step-2.png" alt="">
+            </dt>
+            <dd>审核通过</dd>
+        </dl>
+        <dl>
+            <dt>
+                <img src="/static/images/pic/step-3.png" alt="">
+            </dt>
+            <dd>获得商品</dd>
+        </dl>
+        <dl>
+            <dt>
+                <img src="/static/images/pic/step-4.png" alt="">
+            </dt>
+            <dd>分期付款</dd>
+        </dl>
+    </div>
+    <div class="hot-wares">
+        <h2 class="hot-bar">
+            <strong>热卖商品</strong>
+            <a href="/consumer/h5/goods/list?source=$!source" class="more">更多</a>
+        </h2>
+        <div class="wares-list">
+            #foreach($item in $hotSaleGoodsList)
+            <a href="/consumer/h5/goods/detail?goodsId=$!{item.goodsId}&source=$!source">
+                <dl>
+                    <dt>
+                        <img src="$!item.goodsListImagePath" alt="">
+                        <span class="apply-num"><b>$!item.todayApplySum</b>人已申请</span>
+                    </dt>
+                    <dd class="name">
+                        $!item.title
+                    </dd>
+                    <dd class="monthPay">
+                        月供：¥$!{item.defaultPhaseAmount}x$!{item.defaultLoanTerm}
+                    </dd>
+                </dl>
+            </a>
+            #end
+        </div>
+    </div>
+    <div class="rec-wares">
+        <h2 class="rec-bar">
+            <strong>推荐商品</strong>
+            <a href="/consumer/h5/goods/list?source=$!source" class="more">更多</a>
+        </h2>
+        <div class="wares-list">
+            #foreach($item in $recommendGoodsList)
+            <a href="/consumer/h5/goods/detail?goodsId=$!{item.goodsId}&source=$!source">
+                <dl>
+                    <dt>
+                        <img src="$!{item.goodsListImagePath}" alt="">
+                        <span class="apply-num"><b>$!{item.todayApplySum}</b>人已申请</span>
+                    </dt>
+                    <dd>
+                        <h3 class="title">
+                            $!{item.title}
+                        </h3>
+                        <p class="monthPay">
+                            月供：<b>¥$!{item.defaultPhaseAmount}</b>
+                        </p>
+                        <p class="countPay">
+                            售价：<b>¥$!{item.goodsAmount}</b>
+                        </p>
+                    </dd>
+                </dl>
+            </a>
+            #end
+        </div>
+    </div>
+</div>
+#parse("../pages/common/_nav.vm")
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/index/index.js"></script>
+
+#end
+#end

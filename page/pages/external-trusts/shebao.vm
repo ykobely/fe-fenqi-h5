@@ -1,0 +1,93 @@
+#set($title = "特别信用")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/step.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main page-step3">
+    <div class="shebao">
+
+        <div class="photo-upload">
+            <h6 class="photo-upload-title">上传社保正面照</h6>
+
+            <div class="photo-upload-cursor1 js-photo-upload-wrap">
+                <form action="" method="post" target="iframe-input-1" enctype="multipart/form-data">
+                    <img src="/static/images/shebao-bg-1.png" id="frontPath">
+                    <span class="icon icon-photo-take-button"></span>
+                    <input type="hidden" name="type" value="6">
+                    <input type="hidden" name="contractId">
+                    <input type="file" name="file" accept="image/*" class="photo-upload-input" data-type="6">
+                    <span class="photo-upload-progress-info">
+                        <span class="photo-upload-progress-info-icon">
+                            <span class="js-photo-info-text photo-info-18"></span>
+                            <span class="js-photo-info-text photo-info-24"></span>
+                        </span>
+                    </span>
+                </form>
+                <iframe name="iframe-input-1" style="display:none;"></iframe>
+            </div>
+
+            <div class="error-message js-error-message" style="text-align:center;" data-type="6">
+                <span class="icon icon-error-message-info"></span>
+                上传社保正面照
+            </div>
+        </div>
+
+        <div class="photo-upload">
+            <h6 class="photo-upload-title">上传社保背面照</h6>
+
+            <div class="photo-upload-cursor1 js-photo-upload-wrap">
+                <form action="" method="post" target="iframe-input-2" enctype="multipart/form-data">
+                    <img src="/static/images/shebao-bg-2.png" id="backPath">
+                    <span class="icon icon-photo-take-button"></span>
+                    <input type="hidden" name="type" value="7">
+                    <input type="hidden" name="contractId">
+                    <input type="file" name="file" accept="image/*" class="photo-upload-input" data-type="7">
+                    <span class="photo-upload-progress-info">
+                        <span class="photo-upload-progress-info-icon">
+                            <span class="js-photo-info-text photo-info-18"></span>
+                            <span class="js-photo-info-text photo-info-24"></span>
+                        </span>
+                    </span>
+                </form>
+                <iframe name="iframe-input-2" style="display:none;"></iframe>
+            </div>
+
+            <div class="error-message js-error-message" style="text-align:center;" data-type="7">
+                <span class="icon icon-error-message-info"></span>
+                上传社保背面照
+            </div>
+        </div>
+    </div>
+
+    <div class="shebao-box">
+        <label>请输入社保号</label>
+        <input type="text" name="cardNo" value="$!sscNo">
+        <div class="error-message js-error-message" style="text-align:center;" data-type="cardNo">
+            <span class="icon icon-error-message-info"></span>
+            社保号不能为空
+        </div>
+        <button type="button" class="btn-submit js-btn-submit">确定</button>
+    </div>
+
+</div>
+
+
+<script>
+    var globalData = {
+        images: {
+            "6": "$!sscFront",
+            "7": "$!sscBack",
+        }
+    };
+
+    console.log(globalData);
+</script>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/external-trusts/shebao.js"></script>
+#end
+#end

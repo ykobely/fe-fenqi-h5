@@ -1,0 +1,28 @@
+#set($title = "有用分期")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/reg-act.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="regAct">
+	<a class="regbtn" href="/consumer/html/register?source=$!source">立即注册</a>
+	<dl class="actExplain">
+		<dt><i></i>活动规则</dt>
+		<dd>
+			<p>1、活动时间：2015年12月1日-2015年12月31日</p>
+			<p>2、活动期间注册成功的用户，在2015年12月31日前购买iPhone系列手机返现200元；</p>
+			<p>3、此优惠仅限于在线上完成交易的用户；</p>
+			<p>4、每个ID仅有一台购置iPhone享受此优惠；</p>
+			<p>5、购买流程：选购手机—>支付首付—>提交申请—>通过审核，在首次还款后200元将直接转入还款银行账内（逾期还款用户默认放弃此次返现资格）；</p>
+			<p>6、如有多个活动并行，每个用户仅可领取一个福利资格，默认分配最优返现或红包。</p>
+		</dd>
+	</dl>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/activity/reg-act.js"></script>
+#end
+#end

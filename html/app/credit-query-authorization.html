@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/styles/pages/agreement2.scss">
+    <title>个人信用报告查询授权书</title>
+</head>
+
+<body class="agreement-box">
+    <h1>个人信用报告查询授权书</h1>
+    <p class="">华昌融资租赁（中国）有限公司：</p>
+    <p class="textIndent">本人及配偶因向贵司申请信贷业务，特授权贵司在本人及配偶信贷业务申请 阶段及业务存续期间，同意并不可撤销的授权：</p>
+    <p class="deep textIndent">1、贵司按照国家相关规定采集并向金融信用信息基础数据库及其他依法成立的征信机构提供本人个人信息和包括信贷信息在内的信用信息（包含本人因未及时履行合同义务产生的不良信息）。</p>
+    <p class="deep textIndent">2、贵司可以根据国家有关规定，在办理涉及本人的业务时，有权向金融信用信息基础数据库及其他依法成立的征信机构查询、打印、保存本人的信用信息，并用于下述用途：</p>
+    <p class="deep textIndent3">1) 审核个人信贷业务申请；</p>
+    <p class="deep textIndent3">2) 贷后风险管理；</p>
+    <p class="deep textIndent3">3) 异议核查</p>
+    <p class="textIndent">本人及配偶确认，贵司可将上述信息用于信贷及相关业务（包括但不限于信贷审批、债权转让、向第三方合作担保增信企业披露等）。若贵司超出授权范围使用，应承担相应责任。 </p>
+    <p class="textIndent">本授权书即时生效，至信贷业务申请人（或担保人）_____________________在贵司的相关业务结束后终止。</p>
+    <p class="textIndent">授权人及配偶已经完全知晓并理解上述授权条款。</p>
+    <p class="textIndent">特此授权</p>
+
+    <p class="section">&nbsp;</p>
+    <p>
+        <span>授权人：_____________________</span><br>
+        <span>身份证号码：_________________</span><br>
+        <span>手机号码：___________________</span>
+    </p>
+    <p class="section">&nbsp;</p>
+    <p class="text-right">
+        <span>授权日期：________________</span><br>
+    </p>
+
+</body>
+<script>
+    (function () {
+        var rem, dpr, time, doc = window.document,
+                docEl = doc.documentElement,
+                viewport = doc.querySelector('meta[name="viewport"]'),
+                zoomScale,
+                zoomScaleNum;
+        if (viewport) {
+            //console.warn("将根据已有的meta标签来设置缩放比例");
+            zoomScale = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+            if (zoomScale) {
+                zoomScaleNum = parseFloat(zoomScale[2]);
+                dpr = parseInt(1 / zoomScaleNum);
+            }
+        }
+        if (!dpr && !zoomScaleNum) {
+            // console.warn(“根据未设置meta标签来缩放比例”)
+            var os = (window.navigator.appVersion.match(/android/gi), window.navigator.appVersion.match(/iphone/gi)),
+                    dpr = window.devicePixelRatio;
+            dpr = os ? dpr >= 3 ? 3 : dpr >= 2 ? 2 : 1 : 1;
+            zoomScaleNum = 1 / dpr;
+        }
+        window.addEventListener("resize",
+                function () {
+                    clearTimeout(time);
+                    time = setTimeout(changeRem, 300);
+                }, false);
+
+        //改变基准rem
+        function changeRem() {
+            var docWidth = docEl.getBoundingClientRect().width;
+            // 540 1080P
+            // if(docWidth / dpr > 540){
+            //     docWidth = 540 * dpr;
+            // }
+            rem = docWidth / 360 * 16;
+            docEl.style.fontSize = rem + "px";
+        }
+
+        changeRem();
+    })();
+</script>
+
+</html>

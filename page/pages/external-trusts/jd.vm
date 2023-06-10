@@ -1,0 +1,39 @@
+#set($title = "京东授权")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/external-trusts.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <div class="form-box">
+        <form action="" class="jd-auth-form">
+            <input type="hidden" name="token" value="$!{token}">
+            <div class="form-line">
+                <div class="form-val">
+                    <input type="text" placeholder="京东账号（本人常用）" class="normal-input" name="account">
+                </div>
+            </div>
+            <div class="form-line">
+                <div class="form-val">
+                    <input type="password" placeholder="京东密码" class="normal-input" name="password">
+                </div>
+            </div>
+            <div class="form-line">
+                <input type="submit" class="btn-submit js-submit-button" value="确认授权">
+            </div>
+        </form>
+    </div>
+    <div class="status-lamp-small"><span class="icon-lamp"></span>授权仅用于评估还款能力，我们不会存储和泄露你的信息。</div>
+</div>
+<div class="dialog-warn-tips js-error-tip">
+    <strong></strong>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/external-trusts/jd.js"></script>
+
+#end
+#end

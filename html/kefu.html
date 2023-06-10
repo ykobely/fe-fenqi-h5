@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>帮助中心</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" type="text/css" href="/static/styles/pages/kefu.scss">
+</head>
+<body>
+
+
+<!-- Swiper -->
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<img src="/static/images/kefu/2.png" alt="">
+			<span class="evt-mark"></span>
+			<div class="info-tips">
+				<img src="/static/images/kefu/1-info.png" alt="">
+			</div>
+		</div>
+		<div class="swiper-slide">
+			<img src="/static/images/kefu/3.png" alt="">
+			<span class="evt-mark"></span>
+			<div class="info-tips">
+				<img src="/static/images/kefu/2-info.png" alt="">
+			</div>
+		</div>
+		<div class="swiper-slide">
+			<img src="/static/images/kefu/4.png" alt="">
+			<span class="evt-mark"></span>
+			<div class="info-tips">
+				<img src="/static/images/kefu/3-info.png" alt="">
+			</div>
+		</div>
+	</div>
+	<div class="swiper-button-next swiper-button-white"></div>
+	<div class="swiper-button-prev swiper-button-white"></div>
+</div>
+<div class="kefu-wrap">
+	<div class="kefu-item">
+		<div class="left-side">
+			<div class="img sq"></div>
+			<h2>申请类</h2>
+		</div>
+		<div class="mid-side">
+			<p><a class="link" href="javascript:;"  data-href="http://s1.yyfq.com/fenqi-h/static/html/help-sq.html#sq-1">申请分期付款要具备什么条件</a></p>
+			<p><a class="link" href="javascript:;" data-href="http://s1.yyfq.com/fenqi-h/static/html/help-sq.html#sq-2">照片不合格如何重新上传</a></p>
+		</div>
+		<div class="right-side">
+			<a class="link" href="javascript:;" data-href="http://s1.yyfq.com/fenqi-h/static/html/help-sq.html">. . .</a>
+		</div>
+	</div>
+	<div class="kefu-item">
+		<div class="left-side">
+			<div class="img sh"></div>
+			<h2>审核类</h2>
+		</div>
+		<div class="mid-side">
+			<p><a class="link" href="javascript:;" data-href="http://s1.yyfq.com/fenqi-h/static/html/help-sh.html#sh-1">审核需要多久</a></p>
+			<p><a class="link" href="javascript:;" data-href="http://s1.yyfq.com/fenqi-h/static/html/help-sh.html#sh-2">如何确保我能通过分期审核</a></p>
+		</div>
+		<div class="right-side">
+			<a class="link" href="javascript:;" data-href="http://s1.yyfq.com/fenqi-h/static/html/help-sh.html">. . .</a>
+		</div>
+	</div>
+	<div class="kefu-item">
+		<div class="left-side">
+			<div class="img hk"></div>
+			<h2>还款类</h2>
+		</div>
+		<div class="mid-side">
+			<p><a class="link" href="javascript:;" data-href="http://s1.yyfq.com/fenqi-h/static/html/help-hk.html#hk-1">有用分期有哪些费用</a></p>
+			<p><a class="link" href="javascript:;" data-href="http://s1.yyfq.com/fenqi-h/static/html/help-hk.html#hk-2">如何还款</a></p>
+		</div>
+		<div class="right-side">
+			<a href="javascript:;" data-href="http://s1.yyfq.com/fenqi-h/static/html/help-hk.html">. . .</a>
+		</div>
+	</div>
+	<div class="kefu-item">
+		<div class="left-side">
+			<div class="img fw"></div>
+			<h2>服务类</h2>
+		</div>
+		<div class="mid-side">
+			<p><a class="link" href="javascript:;" data-href="http://s1.yyfq.com/fenqi-h/static/html/help-fw.html#fw-1">客服热线是多少</a></p>
+			<p><a class="link" href="javascript:;" data-href="http://s1.yyfq.com/fenqi-h/static/html/help-fw.html#fw-2">微信公众号是多少</a></p>
+		</div>
+		<div class="right-side">
+			<a class="link" href="javascript:;" data-href="http://s1.yyfq.com/fenqi-h/static/html/help-fw.html">. . .</a>
+		</div>
+	</div>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<!-- Swiper JS -->
+<script src="/static/scripts/libs/swiper.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+	var swiper = new Swiper('.swiper-container', {
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		spaceBetween: 0,
+		effect: 'slide',
+		//autoplay: 2500,
+		loop: true
+	});
+
+	$(function(){
+		var sUserAgent = navigator.userAgent;
+		$('.link').click(function(){
+			var link = $(this).data('href');
+			if ((sUserAgent.match(/Android/i))) {
+				window.YYFQ_JSBridge.openNewUrl(link);
+			}else if((sUserAgent.match(/iPhone/i))){
+				mxbridge.execSync("yywysignatureplugin","openNewUrl",{"url":link});
+			}
+		});
+
+		$('.evt-mark').click(function(){
+			$(this).siblings('.info-tips').fadeIn();
+		});
+		$('.info-tips').click(function(){
+			$(this).fadeOut()
+		});
+	});
+</script>
+</body>
+</html>

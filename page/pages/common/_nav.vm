@@ -1,0 +1,18 @@
+<ul class="ui-nav js-ui-nav">
+    <li>
+        <a href="/consumer/h5/index?source=$!source">
+            <span class="icon"></span>
+            <span class="title">分期购物</span>
+        </a>
+    </li>
+    <li>
+        <a href="/consumer/h5/usercenter/usercenter?source=$!source">
+            <span class="icon">
+                #if($hasRedDot == 1)
+                    <span class="red"></span>
+                #end
+            </span>
+            <span class="title">我</span>
+        </a>
+    </li>
+</ul>

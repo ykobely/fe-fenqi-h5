@@ -1,0 +1,56 @@
+#set($title = "有用分期")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/reg-act.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="regAct">
+	<div class="form-box">
+        <form action="" class="regAct-form">
+            <div class="form-line">
+            	<div class="form-icon"><img src="/static/images/pic/act/regphone.png" alt=""></div>
+                <div class="form-val">
+                    <input type="tel" placeholder="请输入您的手机号码" class="normal-input" name="phone" id="phone">
+                </div>
+            </div>
+            <div class="form-line">
+                <div class="form-icon"><img src="/static/images/pic/act/regcode.png" alt=""></div>
+                <div class="form-val">
+                    <input type="tel" placeholder="请输入短信验证码" class="normal-input" name="captcha">
+                </div>
+                <div class="form-auth js-captcha" data-phone-target="#phone" data-type="1" data-text="短信验证码" data-sending-text="@second@s">
+                    短信验证码
+                </div>
+            </div>
+            <div class="form-line">
+                <div class="form-icon"><img src="/static/images/pic/act/regpwd.png" alt=""></div>
+                <div class="form-val">
+                    <input type="password" placeholder="请设置登录密码" class="normal-input" name="password">
+                </div>
+            </div>
+            <input type="submit" class="btn-submit js-submit-button" value="注册送200元">
+            <div class="regActLog"><a href="/consumer/html/login?source=$!source" >登&nbsp;&nbsp;&nbsp;录</a></div>
+        </form>
+    </div>
+	<dl class="actExplain">
+		<dt><i></i>活动说明</dt>
+		<dd>即日起，注册有用分期，即可获得200元返现红包，可用于购买iPhone系列所有手机，马上注册去买手机吧！</dd>
+	</dl>
+	<dl class="actExplain">
+		<dt><i></i>何为有用</dt>
+		<dd>真的很想换苹果手机，无奈囊中羞涩又不愿卖肾，找有用分期就对了！最低日付16元，iPhone6s轻松到手！</dd>
+	</dl>
+</div>
+<div class="regAct-warn-tips js-error-tip">
+    <span></span>
+</div>
+#parse("../pages/common/_qcode.vm")
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/activity/reg-act.js"></script>
+
+#end
+#end

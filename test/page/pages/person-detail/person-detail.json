@@ -1,0 +1,57 @@
+{
+    "contract": {
+        "createTime": "2015-12-12",
+        "contractId": "合同id",
+        "userId": "用户id",
+        "contractAmount": "合同金额（贷款金额）",
+        "term": "贷款分期数",
+        "downPayment": "首付金额",
+        "phaseAmount": "每期还款金额",
+        "firstRepaymentDate": "首次还款日（yyyy-mm-dd），每月还款日取dd"
+    },
+
+    "contractGoods": {
+        "brand": "品牌",
+        "type": "类型：0手机",
+        "model_num": "型号",
+        "title": "标题",
+        "goodsAmount": "商品售价",
+        "description": "商品描述"
+    },
+
+    "personalInfo": {
+        "realName": "姓名",
+        "idCardNo": "身份证号",
+        "qq": "QQ号",
+        "eduStatus": "教育状况，（同申请表）"
+    },
+
+    "familyInfo": {
+        "city": "姓名",
+        "address": "身份证号",
+        "marriageStatus": "婚姻状况，同上",
+        "children": "子女状况，同上",
+        "familyMemberName": "家庭联系人姓名",
+        "familyMemberMobile": "家庭联系人手机",
+        "familyMemberType": "家庭联系人类型（同上）"
+    },
+
+    "workInfo": {
+        "monthIncomeLevel": "月收入水平，同上",
+        "companyName": "公司名称",
+        "companyCity": "公司所在城市",
+        "companyAddress": "公司地址",
+
+        "position": "职位（同上）",
+        "otherContractName": "其他联系人姓名",
+        "otherContractMobile": "其他联系人手机",
+
+        "otherContractType": "其他联系人类型（同上）"
+    },
+
+    "accountsInfo": {
+        "bankCardNo": "银行卡号",
+        "bankName": "银行名称",
+        "bankBranchName": "支行名称"
+    }
+}

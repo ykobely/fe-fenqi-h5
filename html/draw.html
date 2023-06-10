@@ -1,0 +1,123 @@
+﻿<!doctype html>
+<html lang="zh-cmn">
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" />
+		<title>E签宝</title>
+		<link rel="stylesheet" type="text/css" href="/static/styles/pages/draw.scss" />
+	</head>
+	<body>
+		<div class="draw" id="draw">
+			<div class="agreement-box">
+				<p>请先勾选协议然后在下方空白处手写签名确认</p>
+				<p>
+					<label class="agreement-label">
+						<input type="checkbox" class="js-agreement-checkbox"> 同意<a id="js-agree" href="javascript:;">《有用分期借款服务合同》</a>
+					</label>
+				</p>
+			</div>
+
+		    <div class="sig" id="sig">
+		    	<canvas id="canvas" width="100" height="100">Your browser doesn't support signing</canvas>
+		    </div>
+		    <ul class="btn-wrap">
+		    	<li class="clear">
+		    		<span id="clear">清除</span>
+		    	</li>
+			    <li class="data">
+				    <span id="data">采用</span>
+			    </li>
+		    </ul>
+		</div>
+
+		<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+		<script src="/static/scripts/libs/signature_pad.min.js"></script>
+		<script src="/static/scripts/libs/jquery.ui.touch-punch.min.js"></script>
+		<script src="/static/scripts/libs/mdialog.js"></script>
+		<script type="text/javascript">
+			function changeSize(){
+			    if(window.innerHeight>window.innerWidth){
+			        $('#sig').css("min-height",((window.innerHeight/2) + 50));
+			        $("#canvas").attr({"height":((window.innerHeight/2) + 50),"width":window.innerWidth});
+			    }else{
+			        $('#sig').css("min-height",(window.innerHeight + 20));
+			        $("#canvas").attr({"height":(window.innerHeight + 20),"width":window.innerWidth});
+			        $('html,body').animate({scrollTop:0},'slow');
+			    }
+			    var canvasX = $("#canvas")[0];
+			    signaturePad = new SignaturePad(canvasX,{
+			        dotSize : 0 ,
+			        velocityFilterWeight :1,
+			        minWidth: 1.0,
+			        maxWidth: 3.2,
+			        penColor: "rgb(0,0,0)",
+			        backgroundColor:"rgb(255,255,255)"
+			    });
+			}
+
+		    $(function(){
+			    var sUserAgent = navigator.userAgent;
+			    //显示合同
+			    //http://s1.yyfq.com/fenqi-h/static/html/agreement.html?query=mobile
+			    $('#js-agree').click(function(){
+				    if ((sUserAgent.match(/Android/i))) {
+					    window.YYFQ_JSBridge.openContractUrl();
+				    }else if((sUserAgent.match(/iPhone/i))){
+					    mxbridge.execSync("yywysignatureplugin","showContract");
+				    }
+			    });
+
+
+
+			    var $checkbox = $('.js-agreement-checkbox');
+		        changeSize();
+		        $(window).resize(function(){
+		            changeSize();
+		        });
+		        $('#clear').click(function() {
+		            signaturePad.clear();
+		        });
+
+			    //让android 按钮调用函数
+			    window.forAndroidData = function(){
+				    if (!$checkbox.prop('checked')) {
+					    new TipBox({type:'tip',str:'请同意《有用分期借款服务合同》',clickDomCancel:true,setTime:10000500,hasBtn:true});
+					    return false;
+				    }
+				    if(signaturePad.isEmpty()){
+					    new TipBox({type:'tip',str:'画布为空，请先手绘签名再提交！',clickDomCancel:true,setTime:10000500,hasBtn:true});
+				    }else{
+					    var canvas = document.getElementById("canvas");
+					    var canvasData = canvas.toDataURL("image/jpeg");
+					    window.YYFQ_JSBridge.getUserSignatures(canvasData);
+				    }
+
+			    };
+
+			    //获取签名
+		        $('#data').click(function() {
+			        if (!$checkbox.prop('checked')) {
+				        new TipBox({type:'tip',str:'请同意《有用分期借款服务合同》',clickDomCancel:true,setTime:10000500,hasBtn:true});
+				        return false;
+			        }
+		        	if(signaturePad.isEmpty()){
+				        new TipBox({type:'tip',str:'画布为空，请先手绘签名再提交！',clickDomCancel:true,setTime:10000500,hasBtn:true});
+		        	}else{
+		            	var canvas = document.getElementById("canvas");
+		                var canvasData = canvas.toDataURL("image/jpeg");
+
+                        if ((sUserAgent.match(/Android/i))) {
+                            window.YYFQ_JSBridge.getUserSignatures(canvasData);
+                        }else if((sUserAgent.match(/iPhone/i))){
+                            //alert(canvasData);
+                           mxbridge.execSync("yywysignatureplugin","yywySignature",{"url":canvasData});
+                        }
+		        	}
+		        });
+
+		    })
+		</script>
+	</body>
+</html>

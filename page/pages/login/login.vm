@@ -1,0 +1,48 @@
+#set($title = "登录")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/find-password.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <div class="form-box">
+        <h2 class="login-logo">
+            <img src="/static/images/pic/logo.png" alt="">
+        </h2>
+        <form action="" class="login-form" method="post">
+            <div class="form-line">
+                <div class="form-val">
+                    <input type="tel" placeholder="手机号" class="normal-input" name="phone">
+                </div>
+            </div>
+            <div class="form-line">
+                <div class="form-val">
+                    <input type="password" placeholder="密码" class="normal-input" name="password">
+                </div>
+            </div>
+            <div class="form-line cancel-border">
+                <div class="form-val forget-pass">
+                    <a href="/consumer/h5/resetPassword">忘记密码？</a>
+                </div>
+            </div>
+            <div class="form-line cancel-border">
+                <button type="submit" class="btn-submit js-submit-button">登录</button>
+            </div>
+            <div class="form-line">
+                <a href="/consumer/html/register?source=$!source" class="btn-link">注册新用户</a>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="dialog-warn-tips js-error-tip" style="display: none;">
+    <strong></strong>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/login/login.js"></script>
+
+#end
+#end

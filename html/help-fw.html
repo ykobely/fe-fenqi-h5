@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>服务问题帮助</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="/static/styles/pages/help.scss">
+    </head>
+    <body>
+        <div class="questions">
+            <div class="item" id="fw-1">
+                <h5 class="heading">
+                    <span class="icon icon-question-plus-minus"></span>客服热线是多少
+                </h5>
+                <div class="content">
+	                客户服务热线：4008005518
+	                商户及销售支持热线：4008001889
+                </div>
+            </div>
+	        <div class="item" id="fw-2">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>微信公众号是多少
+		        </h5>
+		        <div class="content">
+			        有用分期服务（服务时间：24小时）
+		        </div>
+	        </div>
+	        <div class="item">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>QQ号
+		        </h5>
+		        <div class="content">
+			        4008005518（服务时间：24小时）
+		        </div>
+	        </div>
+        </div>
+    </body>
+    <script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+    <script src="/static/scripts/pages/ucenter/help.js"></script>
+    <script>
+        $(function(){
+            $('body').removeClass('show-header');
+	        var targetL = location.href.split("#")[1];
+	        $("#" + targetL).trigger('click');
+        })
+    </script>
+</html>

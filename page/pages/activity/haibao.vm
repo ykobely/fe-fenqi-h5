@@ -1,0 +1,113 @@
+#set($title = "有用分期,海报制作")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<meta name="viewport" content="target-densitydpi=device-dpi,width=640,user-scalable=0">
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/activity-haibao.scss">
+#end
+
+#block('body')
+<div class="loading"></div>
+<div class="uplading">
+	<img src="/static/images/pic/haibao/iconfont-upload.gif" alt="">
+	<div>上传中，请稍候..</div>
+</div>
+
+<div class="success-box">
+	<img class="erweima-img" src="/static/images/pic/haibao/erweima.png">
+	<img class="logo-img" src="/static/images/pic/haibao/logo2.png">
+	<img class="bg" src="/static/images/pic/haibao/t2.png">
+</div>
+<!-- 场景一 -->
+<div class="container fix fview" >
+	<img class="p1-bg" src="/static/images/pic/haibao/stage-1-bg.jpg">
+	<img class="p1-logo" src="/static/images/pic/haibao/logo.png">
+	<img class="p1-slogan" src="/static/images/pic/haibao/stage-1-slogan.png">
+	<img class="p1-btn" src="/static/images/pic/haibao/stage-1-btn.png" onclick="_app.gt(1)">
+	<img class="p1-t1" src="/static/images/pic/haibao/stage-1-title.png">
+	<div class="flashit"><img class="p1-upto" src="/static/images/pic/haibao/arrow.png"></div>
+</div>
+
+<!-- 设置图片场景 -->
+<div class="container setting">
+	<div class="sets">
+		<div class="cts can-up-file">
+			<div class="ch-file">
+				<form data-id="0" action="#" method="post" enctype="multipart/form-data">
+                    <span>
+                        <input class="upl-file" name="file" type="file" accept="image/*">
+                        <div class="up-yes" data-id="0"></div>
+                    </span>
+				</form>
+			</div>
+		</div>
+		<div class="cts can-view-file">
+			<div class="my-img">
+				<img class="p2-bt1" src="/static/images/pic/haibao/reset.png" alt="">
+				<img class="p2-bt2" src="/static/images/pic/haibao/reselect.png" alt="">
+			</div>
+		</div>
+		<div class="cts">
+			<div class="p2-tables btn-list">
+				<p><input type="text" name="btn-text-1" placeholder="#程序猿#" maxlength="7" autocomplete="off"></p>
+				<p><input type="text" name="btn-text-2" placeholder="#母胎单身#" maxlength="7" autocomplete="off"></p>
+				<p><input type="text" name="btn-text-3" placeholder="#软妹子#" maxlength="7"  autocomplete="off"></p>
+			</div>
+		</div>
+		<div class="cts">
+			<div class="p2-colors">
+				<div class="color on" data-color="ffffff"><span></span></div>
+				<div class="color" data-color="4a4a4a"><span></span></div>
+				<div class="color" data-color="ff0072"><span></span></div>
+				<div class="color" data-color="fff600"><span></span></div>
+				<div class="color" data-color="37c5af"><span></span></div>
+				<div class="color" data-color="00a8ff"><span></span></div>
+			</div>
+		</div>
+		<div class="cts t"><img src="/static/images/pic/haibao/stage-2-title2.png" alt=""></div>
+		<div class="cts">
+			<div class="p2-tables">
+				<p><input type="text" name="work" placeholder="这里充满激情和努力#18字以内" maxlength="18"  autocomplete="off"></p>
+				<p><input type="text" name="me" placeholder="这里让我找到不一样的自己#18字以内" maxlength="18"  autocomplete="off"></p>
+				<p><input type="text" name="hope" placeholder="2016年我希望升职加薪#18字以内" maxlength="18"  autocomplete="off"></p>
+				<input type="hidden" name="color" value="ffffff">
+				<input type="hidden" name="sizex" value="640">
+				<input type="hidden" name="left" value="0">
+				<input type="hidden" name="top" value="0">
+			</div>
+		</div>
+		<div class="cts">
+			<div class="btn-star"></div>
+		</div>
+	</div>
+</div>
+
+<!-- 图片剪裁场景 -->
+<div class="container fix cutting">
+	<div class="f-box">
+		<img src="/static/images/pic/haibao/cutting-focus-3.png" class="f-box-focus">
+		<div class="center-img">
+			<div class="top-r">
+				<div class="top-t-s opt-2">
+					<img src="#" class="u-img">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="top-b" id="pan-box"></div>
+
+	<div class="tools" id="pan-size">
+		<div class="size"><span id="pan-span"></span></div>
+		<div class="hr-line"></div>
+		<div class="btn-yes">确定</div>
+	</div>
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/libs/hammer.min.js"></script>
+<script src="/static/scripts/libs/jquery.form.min.js"></script>
+<script src="/static/scripts/pages/activity/haibao/app.js"></script>
+<script src="/static/scripts/pages/activity/haibao/exif.js"></script>
+#end
+#end

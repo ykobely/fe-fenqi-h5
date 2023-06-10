@@ -1,0 +1,231 @@
+#set($title = "我的购物单")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/shop-detail.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<form action="" class="main">
+    <div class="detail-wrapper">
+        <dl class="detail">
+            <dt class="title"><span class="text">申请人信息</span></dt>
+            <dd class="line">
+                <span class="label">姓名：</span>
+                <span class="value">$!realName</span>
+            </dd>
+            <dd class="line">
+                <span class="label">身份证号：</span>
+                <span class="value">$!idCardNo</span>
+            </dd>
+            <dd class="line">
+                <span class="label">手机号码：</span>
+                <span class="value">$!mobile</span>
+            </dd>
+            <dd class="line">
+                <span class="label">Q Q 号码：</span>
+                <span class="value"><strong>$!qq</strong></span>
+            </dd>
+            <dd class="line">
+                <span class="label">现在住址：</span>
+                <span class="value"><strong>$!city</strong></span>
+            </dd>
+            <dd class="line">
+                <span class="label">现在住址-详细：</span>
+                <span class="value">$!address</span>
+            </dd>
+
+            <dt class="title"><span class="text">家庭信息</span></dt>
+            #* 
+<dd class="line">
+                <span class="label">婚姻状况：</span>
+                <span class="value">
+                    #if ($marriageStatus == 1)
+                        未婚
+                    #elseif ($marriageStatus == 2)
+                        已婚有子女
+                    #elseif ($marriageStatus == 3)
+                        已婚无子女
+                    #elseif ($marriageStatus == 4)
+                        其他
+                    #end
+                </span>
+            </dd>
+            <dd class="line">
+                <span class="label">教育情况：</span>
+                <span class="value">
+                    #if ($!eduStatus == 1)
+                        初中及以下
+                    #elseif ($!eduStatus == 2)
+                        高中
+                    #elseif ($!eduStatus == 3)
+                        专科
+                    #elseif ($!eduStatus == 4)
+                        本科
+                    #elseif ($!eduStatus == 5)
+                        研究生及以上
+                    #end
+                </span>
+            </dd> *#
+
+            <dd class="line">
+                <span class="label">紧急联系人姓名：</span>
+                <span class="value">$!emergencyContact</span>
+            </dd>
+            <dd class="line">
+                <span class="label">紧急联系人手机：</span>
+                <span class="value">$!emergencyContactPhone</span>
+            </dd>
+            <dd class="line">
+                <span class="label">紧急联系人关系：</span>
+                <span class="value">
+                    #if ($!emergencyContactType == 1)
+                        父母
+                    #elseif ($!emergencyContactType == 2)
+                        夫妻
+                    #elseif ($!emergencyContactType == 3)
+                        子女
+                    #elseif ($!emergencyContactType == 4)
+                        朋友
+                    #elseif ($!emergencyContactType == 5)
+                        同事
+                    #end
+                </span>
+            </dd>
+
+            <dt class="title"><span class="text">单位信息</span></dt>
+            <dd class="line">
+                <span class="label">单位名称：</span>
+                <span class="value">
+                    $!companyName
+                </span>
+            </dd>
+            #* 
+<dd class="line">
+                <span class="label">所属行业：</span>
+                <span class="value">
+                    #if($!industry == 1)
+                        餐饮、酒店、旅游、美容美发保健
+                    #elseif($!industry == 2)
+                        农业、林业、畜牧业和渔业
+                    #elseif($!industry == 3)
+                        建筑、装修
+                    #elseif($!industry == 4)
+                        文化、运动、娱乐、传媒、广告设计
+                    #elseif($!industry == 5)
+                        教育
+                    #elseif($!industry == 6)
+                        金融机构、专业性事务机构
+                    #elseif($!industry == 7)
+                        政府机构、社会团体
+                    #elseif($!industry == 8)
+                        计算机、通信、通讯
+                    #elseif($!industry == 9)
+                        制造、快速消费品、耐用消费品
+                    #elseif($!industry == 10)
+                        军队
+                    #elseif($!industry == 11)
+                        能源/化工/矿产
+	                #elseif($!industry == 12)
+                        电力、煤气和水的生产和供应
+	                #elseif($!industry == 13)
+                        房地产
+	                #elseif($!industry == 14)
+                       个体、自营、退休、居住、家政和其他服务
+	                #elseif($!industry == 15)
+                        科研、技术服务和地质勘探
+	                #elseif($!industry == 16)
+                        事业单位、公共设施、医疗卫生、社会保障
+	                #elseif($!industry == 17)
+                        租赁和商业服务
+	                #elseif($!industry == 18)
+                        批发和零售贸易
+	                #elseif($!industry == 19)
+                        其他
+                    #end
+                </span>
+            </dd>
+            <dd class="line">
+                <span class="label">单位电话：</span>
+                <span class="value">
+                    $!officephone
+                </span>
+            </dd> *#
+
+            <dd class="line">
+                <span class="label">单位地址：</span>
+                <span class="value">
+                    $!companyCity
+                </span>
+            </dd>
+            <dd class="line">
+                <span class="label">单位地址-详细：</span>
+                <span class="value">
+                    $!companyAddress
+                </span>
+            </dd>
+            #* 
+<dd class="line">
+                <span class="label">月收入：</span>
+                <span class="value">
+                    #if ($!monthIncomeLevel == 1)
+                        1千以下
+                    #elseif ($!monthIncomeLevel == 2)
+                        1-2千
+                    #elseif ($!monthIncomeLevel == 3)
+                        2-3千
+                    #elseif ($!monthIncomeLevel == 4)
+                        3-4千
+                    #elseif ($!monthIncomeLevel == 5)
+                        4-5千
+                    #elseif ($!monthIncomeLevel == 6)
+                        5千以上
+                    #end
+                </span>
+            </dd>
+            <dd class="line">
+                <span class="label">入职年限：</span>
+                <span class="value">
+                    #if ($!workingYears == 1)
+                        3个月以内
+                    #elseif ($!workingYears == 2)
+                        3-6个月
+                    #elseif ($!workingYears == 3)
+                        6-12个月
+                    #elseif ($!workingYears == 4)
+                        12个月以上
+                    #end
+                </span>
+            </dd> *#
+
+
+            <dt class="title"><span class="text">借款人信息</span></dt>
+            <dd class="line">
+                <span class="label">借款人账户名称：</span>
+                <span class="value">$!{realName}</span>
+            </dd>
+            <dd class="line">
+                <span class="label">开户银行：</span>
+                <span class="value">$!{bankName}</span>
+            </dd>
+            <dd class="line">
+                <span class="label">银行卡号：</span>
+                <span class="value">$!{bankCardNo}</span>
+            </dd>
+        </dl>
+    </div>
+
+    <div class="submit-line">
+        <div class="submit-wrapper">
+            <input type="button" class="btn-submit" value="返回" onclick="history.back();">
+        </div>
+    </div>
+</form>
+
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/common/common.js"></script>
+
+#end
+#end

@@ -1,0 +1,11 @@
+{
+    "personalCredit": {
+        "creditLevel": 3,
+        "creditLevelScoreSum": 20,
+        "personScore": 10,
+        "workScore": 20,
+        "faceScore": 10,
+        "specialCreditScore": 20,
+        "contractStatus": 0
+    }
+}

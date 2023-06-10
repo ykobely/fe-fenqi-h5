@@ -1,0 +1,288 @@
+#set($title = "第二式 鱼跃于渊")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/step.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main page-step2">
+    <p class="help-info">亲，验证一下你的工作信息，分期服务快到碗里来！</p>
+
+    <div class="step2-bar"></div>
+
+    <form class="step2-form">
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">职业</label>
+            <div class="form-content">
+                <div class="ui-field-wrap">
+                    <a href="#" class="ui-radio">
+                        工薪
+                        <input type="radio" name="occupation" value="2">
+                    </a>
+
+                    <a href="#" class="ui-radio">
+                        老板
+                        <input type="radio" name="occupation" value="3">
+                    </a>
+                     <a href="#" class="ui-radio">
+                        学生
+                        <input type="radio" name="occupation" value="1">
+                    </a>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">单位名称</label>
+            <div class="form-content">
+                <input type="text" name="companyName" placeholder="请输入公司全称" value="$!workInfo.companyName">
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">行业</label>
+            <div class="form-content">
+                <div class="ui-select">
+                    <span class="js-text">请选择</span>
+                    <select name="industry">
+                        <option value="">请选择</option>
+                        <option value="1">餐饮、酒店、旅游、美容美发保健</option>
+                        <option value="2">农业、林业、畜牧业和渔业</option>
+                        <option value="3">建筑、装修</option>
+                        <option value="4">文化、运动、娱乐、传媒、广告设计</option>
+                        <option value="5">教育</option>
+                        <option value="6">金融机构、专业性事务机构</option>
+                        <option value="7">政府机构、社会团体</option>
+                        <option value="8">计算机、通信、通讯</option>
+                        <option value="9">制造、快速消费品、耐用消费品</option>
+                        <option value="10">军队</option>
+                        <option value="11">能源/化工/矿产</option>
+                        <option value="12">电力、煤气和水的生产和供应</option>
+                        <option value="13">房地产</option>
+                        <option value="14">个体、自营、退休、居住、家政和其他服务</option>
+                        <option value="15">科研、技术服务和地质勘探</option>
+                        <option value="16">事业单位、公共设施、医疗卫生、社会保障</option>
+                        <option value="17">租赁和商业服务</option>
+                        <option value="18">批发和零售贸易</option>
+                        <option value="19">其他</option>
+                    </select>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">现单位工作年限</label>
+            <div class="form-content">
+                <div class="ui-select">
+                    <span class="js-text">
+                        请选择
+                    </span>
+                    <select name="workingYears">
+                        <option value="">请选择</option>
+                        <option value="1">3个月以内</option>
+                        <option value="2">3-6个月</option>
+                        <option value="3">6-12个月</option>
+                        <option value="4">12个月以上</option>
+                    </select>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">单位住址</label>
+            <div class="form-content">
+                <div class="ui-select">
+                    <span class="js-text city-ui-select-text">
+                        请选择
+                    </span>
+                    <select name="companyProvince">
+                    </select>
+                </div>
+                <div class="ui-select">
+                    <span class="js-text city-ui-select-text">
+                        请选择
+                    </span>
+                    <select name="companyCity"></select>
+                </div>
+                <div class="ui-select">
+                    <span class="js-text city-ui-select-text">
+                        请选择
+                    </span>
+                    <select name="companyDistrict"></select>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">单位住址-详细</label>
+            <div class="form-content">
+                <input type="text" name="companyAddress" placeholder="请输入单位住址" value="$!workInfo.companyAddress">
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">工作电话</label>
+            <div class="form-content landline-telephone">
+                <input type="tel" placeholder="区号" id="area_code" name="areaCode" maxlength="4">
+                <span>-</span>
+                <input type="tel" placeholder="固定电话" id="telephone" name="officephone" maxlength="8">
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">分机</label>
+            <div class="form-content">
+                <input type="text" name="officeExtension" placeholder="请输入单位固定电话的分机号（选填）" value="$!workInfo.officeExtension">
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">个人月收入</label>
+            <div class="form-content">
+                <div class="ui-select">
+                    <span class="js-text">
+                        请选择
+                    </span>
+                    <select name="monthIncomeLevel">
+                        <option value="">请选择</option>
+                        <option value="1">1000以下</option>
+                        <option value="2">1000-2000</option>
+                        <option value="3">2000-3000</option>
+                        <option value="4">3000-4000</option>
+                        <option value="5">4000-5000</option>
+                        <option value="6">5000以上</option>
+                    </select>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">收货地址</label>
+            <div class="form-content">
+                <div class="ui-field-wrap">
+                    <a href="#" class="ui-radio">
+                        个人地址
+                        <input type="radio" name="receivingAddress" value="1">
+                    </a>
+
+                    <a href="#" class="ui-radio">
+                        单位地址
+                        <input type="radio" name="receivingAddress" value="2">
+                    </a>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+        
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">开户行</label>
+            <div class="form-content">
+                <div class="ui-select">
+                    <span class="js-text">
+                        请选择
+                    </span>
+                    <select name="bankName">
+                        <option value="">请选择</option>
+                        <option value="中国工商银行">中国工商银行</option>
+                        <option value="中国农业银行">中国农业银行</option>
+                        <option value="中国银行">中国银行</option>
+                        <option value="中国建设银行">中国建设银行</option>
+                        <option value="交通银行">交通银行</option>
+                        <option value="招商银行">招商银行</option>
+                        <option value="广东发展银行">广东发展银行</option>
+                        <option value="兴业银行">兴业银行</option>
+                        <option value="中国光大银行">中国光大银行</option>
+                        <option value="中国民生银行">中国民生银行</option>
+                        <option value="上海浦东发展银行">上海浦东发展银行</option>
+                    </select>
+                </div>
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="form-group js-form-group">
+            <label class="control-label" for="">银行卡号</label>
+            <div class="form-content">
+                <input type="text" name="bankCardNo" placeholder="银行卡号绑定人需与身份证一致" value="$!account.bankCardNo">
+            </div>
+            <div class="error-message js-error-message">
+                <span class="js-error-message-text"></span>
+            </div>
+        </div>
+
+        <div class="btn-wrap js-submit-button-wrap">
+            <button type="button" class="btn-submit js-submit-button">保存,下一步</button>
+        </div>
+    </form>
+
+    <div class="status-lamp js-finish-status" style="display: none;">
+        <span class="icon-lamp"></span>
+        就差上传照片漏个脸了
+    </div>
+</div>
+
+
+
+<script>
+
+    function getValue(value) {
+        if (value == 0) {
+            return '';
+        }
+
+        return value;
+    }
+
+    var globalData = {
+        occupation: getValue('$!workInfo.occupation'),
+        industry: getValue('$!workInfo.industry'),
+        companyCity: '$!workInfo.companyCity',
+        officephone:'$!workInfo.officePhone',
+        receivingAddress: '$!receivingAddress',
+        monthIncomeLevel: getValue('$!workInfo.monthIncomeLevel'),
+        workingYears: getValue('$!workInfo.workingYears'),
+        contractStatus: '$!authActive.contractStatus',
+	    workStatus: '$!authActive.workStatus',
+        bankName: '$!account.bankName'
+    };
+
+    console.log(globalData);
+</script>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/apply/step2.js"></script>
+#end
+#end

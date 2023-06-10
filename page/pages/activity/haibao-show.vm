@@ -1,0 +1,29 @@
+#set($title = "有用分期,海报制作")
+
+#extends("page/layouts/main.vm")
+
+#block('head_meta')
+<meta name="viewport" content="target-densitydpi=device-dpi,width=640,user-scalable=0">
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/activity-haibao.scss">
+
+#end
+
+#block('body')
+<div class="share-box">
+	<img src="/static/images/pic/haibao/wechat-share.png" alt="">
+</div>
+<div class="container showbox">
+	<div class="box" style="background-color:#fff;">
+		<img src="${imgUrl}" alt="">
+	</div>
+	<div class="btns">
+		<a href="$!imgUrl">保存海报</a>
+		<a href="/consumer/h5/upload/imageAction/#restart">再玩一次</a>
+		<a class="share-it" href="javascript:void(0)">分享到朋友圈</a>
+	</div>
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/activity/haibao/haibao-show.js"></script>
+#end
+#end

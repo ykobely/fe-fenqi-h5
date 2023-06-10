@@ -1,0 +1,58 @@
+#set($title = "运营商授权")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/external-trusts.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <div class="form-box">
+        <form action="" class="isp-auth-form">
+            <input type="hidden" name="token" value="$!{token}">
+            <input type="hidden" name="website" value="$!{website}">
+            <input type="hidden" name="mobile" value="$!{mobile}">
+            <div class="form-line isp-phone">
+                <div class="title">我的号码</div>
+                <div class="phone">$!{mobileName} $!{mobile}</div>
+            </div>
+            <div class="form-line isp-password">
+                <div class="title">服务密码：</div>
+                <div class="form-val">
+                    <input type="password" placeholder="输入服务密码" class="normal-input" name="password" id="isp-password">
+                </div>
+                <div class="form-tip ispForgetPwd">
+                    <a href="/consumer/h5/user/mobilePwd/passWord?source=$!source">忘记密码</a>
+                </div>
+            </div>
+            <div class="form-line isp-verify">
+                <div class="title">动态码：<em>（请查收短信）</em></div>
+                <div class="form-val">
+                    <input type="text" placeholder="输入动态码" class="normal-input" name="captcha">
+                </div>
+                <div class="form-tip resend-vcode">
+                    <a href="javascript:;">重发动态码</a>
+                </div>
+            </div>
+            <div class="form-line form-line-submit">
+                <input type="submit" class="btn-submit js-submit-button" value="登 录">
+            </div>
+        </form>
+    </div>
+    <div class="isp-tips">
+        温馨提示：<br>
+        1.	请务必授权验证本人实名认证的手机号哦(使用满3个月)<br>
+        2.	登录成功后将收到运营商通知短信，无需回复<br>
+        3.	如忘记服务密码可去运营商网站修改
+    </div>
+</div>
+<div class="dialog-warn-tips js-error-tip">
+    <strong></strong>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/external-trusts/isp.js"></script>
+
+#end
+#end

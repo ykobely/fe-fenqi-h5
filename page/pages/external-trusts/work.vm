@@ -1,0 +1,54 @@
+#set($title = "工作证上传")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/external-trusts.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <div class="form-box js-photo-upload-wrap">
+        <div class="photo-upload">
+            <div class="photo-upload-cursor js-photo-upload-wrap">
+                <form action="" method="post" target="iframe-input-1" enctype="multipart/form-data">
+                    <img src="/static/images/photo-bg-4.jpg">
+                    <span class="icon icon-photo-take-button"></span>
+                    <input type="hidden" name="type" value="1">
+                    <input type="hidden" name="contractId">
+                    <input type="file" name="file" accept="image/*" class="photo-upload-input" data-type="1">
+                    <span class="photo-upload-progress-info">
+                        <span class="photo-upload-progress-info-icon">
+                            <span class="js-photo-info-text photo-info-18"></span>
+                            <span class="js-photo-info-text photo-info-24"></span>
+                        </span>
+                    </span>
+                </form>
+                <iframe name="iframe-input-1" style="display:none;"></iframe>
+            </div>
+
+            <div class="error-message js-error-message" style="text-align:center;" data-type="1">
+                <span class="icon icon-error-message-info"></span>
+                请上传工作证明照片
+            </div>
+        </div>
+
+        <div class="status-lamp-small"><span class="icon-lamp"></span> 拍摄一张工作证明照片，可以是工牌、有效期内工作证明、劳动合同（甲乙方签字盖章页）</div>
+
+        <form action="" class="work-auth-form">
+            <input type="hidden" name="imgPath" id="imgPath">
+            <div class="form-line js-submit-button">
+                <input type="submit" class="btn-submit" value="确认提交">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="dialog-warn-tips js-error-tip">
+    <strong></strong>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/external-trusts/work.js"></script>
+
+#end
+#end

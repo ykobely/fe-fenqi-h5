@@ -1,0 +1,93 @@
+#set($title = "我的购物单")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/shop-list.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <div class="list-box">
+        <div class="each-list">
+            <ul class="order-id pass">
+                <li class="date">2015.11.17 <span>09:58:23</span></li>
+                <li>
+                    <a href="">申请单编号:  150334576778718756</a>
+                </li>
+                <li>
+                    商品:  苹果iPhone6s 16G(限1000台）
+                </li>
+            </ul>
+            <div class="cash-info">
+                <dl>
+                    <dt>
+                        本月待还
+                    </dt>
+                    <dd>
+                        ¥456.99
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        逾期金额
+                    </dt>
+                    <dd>
+                        ¥456.99
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        剩余待还
+                    </dt>
+                    <dd>
+                        ¥456.99
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="each-list">
+            <ul class="order-id pass">
+                <li class="date">2015.11.17 <span>09:58:23</span></li>
+                <li>
+                    <a href="">申请单编号:  150334576778718756</a>
+                </li>
+                <li>
+                    商品:  苹果iPhone6s 16G(限1000台）
+                </li>
+            </ul>
+            <div class="cash-info">
+                <dl>
+                    <dt>
+                        本月待还
+                    </dt>
+                    <dd>
+                        ¥456.99
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        逾期金额
+                    </dt>
+                    <dd>
+                        ¥456.99
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        剩余待还
+                    </dt>
+                    <dd>
+                        ¥456.99
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/common/common.js"></script>
+
+#end
+#end

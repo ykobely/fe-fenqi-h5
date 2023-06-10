@@ -1,0 +1,12 @@
+{
+	"code":0,
+	"data":{
+		"authActive":{
+			"imgStatus":0,
+			"personStatus":0,
+			"workStatus":0
+		},
+		"cartId":1
+	},
+	"msg":"操作成功"
+}

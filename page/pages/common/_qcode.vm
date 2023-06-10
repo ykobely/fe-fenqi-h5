@@ -1,0 +1,17 @@
+<div class="dialog-tips" id="Qcode-dialog" style="display: none;">
+	<div class="dialog-Qcode-inner">
+		<div class="dialog-Qcode-content">
+			<p class="tips" id="Qcode-tips" style="display: none">请输入图形验证码</p>
+			<div class="Qcode-content-inner">
+				<input type="text" name="Qcode" id="Qcode" placeholder="请输入图形验证码"/>
+					<img src="/consumer/ajax/verify/verifyCode" alt="" id="Qcode-img"/>
+				<span id="refresh-Qcode-btn"></span>
+			</div>
+		</div>
+		<div class="dialog-Qcode-button">
+			<a  class="confirm-btn btn" id="js-confirm-btn">确认</a>
+			<a class="cancel-btn btn" id="js-cancel-btn">取消</a>
+		</div>
+	</div>
+</div>
+<input type="hidden" name="curQcode" id="curQcode" value=""/>

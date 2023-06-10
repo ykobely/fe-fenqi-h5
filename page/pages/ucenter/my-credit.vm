@@ -1,0 +1,101 @@
+#set($title = "练功房")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/ucenter.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="ucenter">
+    <div class="credit-level">
+        <p>
+            我的功力
+        </p>
+        <p class="level">
+            #if($personalCredit.creditLevel == 1)
+                低
+            #elseif ($personalCredit.creditLevel == 2)
+                中
+            #elseif ($personalCredit.creditLevel == 3)
+                高
+            #end
+        </p>
+    </div>
+    <h2 class="record">
+        <p>
+            #if($personalCredit.creditLevel == 3)
+                <img src="/static/images/pic/credit-high.png" class="high" alt="">
+            #elseif($personalCredit.creditLevel == 2)
+                <img src="/static/images/pic/credit-middle.png" class="middle" alt="">
+            #elseif($personalCredit.creditLevel == 1)
+                <img src="/static/images/pic/credit-low.png" class="low" alt="">
+            #end
+
+            <span>
+                你已击败 <b class="rank">$!{personalCredit.creditLevelScoreSum}%</b>的申请人
+            </span>
+        </p>
+    </h2>
+    <div class="inborn">
+        <a href="/consumer/h5/personal/getPersonalInfoVm1?source=$!source">
+           <dl>
+               <dt><img src="/static/images/pic/inborn-1.png" alt=""></dt>
+               <dd>
+                   第一式·开门见山<strong class="val">+$!{personalCredit.personScore}%</strong>
+               </dd>
+           </dl>
+        </a>
+        <a href="/consumer/h5/personal/getWorkInfo?source=$!source">
+           <dl>
+               <dt><img src="/static/images/pic/inborn-2.png" alt=""></dt>
+               <dd>
+                   第二式·鱼跃于渊<strong class="val">+$!{personalCredit.workScore}%</strong>
+               </dd>
+           </dl>
+        </a>
+        <a href="/consumer/h5/personal/uploadImageVm?source=$!source">
+           <dl>
+               <dt><img src="/static/images/pic/inborn-3.png" alt=""></dt>
+               <dd>
+                   第三式·美女梳妆<strong class="val">+$!{personalCredit.faceScore}%</strong>
+               </dd>
+           </dl>
+        </a>
+        <a href="/consumer/h5/user/extraCredit/index?source=$!source">
+            <dl>
+                <dt><img src="/static/images/pic/inborn-4.png" alt=""></dt>
+                <dd>
+                    编外式·五方来援<strong class="val">+$!{personalCredit.specialCreditScore}%</strong>
+                </dd>
+            </dl>
+        </a>
+    </div>
+    <div class="apply">
+        #set($contractStatus=$!personalCredit.contractStatus)
+
+        <a href="#if($contractStatus == 0)/consumer/h5/personal/getPersonalInfoVm1#else javascript:void(0);#end" class="btn-authentication">
+            #if ($contractStatus == 0)
+                申请认证，解锁分期特权
+            #elseif ($contractStatus == 1)
+                认证审核中，请耐心等待
+            #elseif ($contractStatus == 2)
+                认证已通过，可去购物单查看
+            #elseif ($contractStatus == 3)
+                功力不够，认证未通过
+            #end
+        </a>
+        <div class="status-lamp-small tips">
+            <span class="icon-lamp"></span>
+            年轻人，看你骨骼清奇，练完这几招就能使用分期了！
+        </div>
+
+    </div>
+</div>
+#parse("../pages/common/_nav.vm")
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/common/common.js"></script>
+
+#end
+#end

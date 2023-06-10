@@ -1,0 +1,122 @@
+#set($title = "有用分期")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/go-shop.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+	<div class="form-box">
+		<form action="" class="go-shop-form">
+			<div class="form-line form-name">
+                <div class="form-val">
+                    <input type="text" placeholder="姓名：" class="normal-input" name="userName">
+                </div>
+            </div>
+            <div class="form-line form-phone">
+                <div class="form-val">
+                    <input type="tel" placeholder="手机号：" class="normal-input" name="mobile" id="mobile">
+                </div>
+            </div>
+            <dl class="form-select">
+            	<dt>请选择门店：</dt>
+            	<dd>
+            		<div>
+	            		<a href="" class="area-radio">福田店<input type="radio" name="region" value="福田店"></a>
+	            		<a href="" class="area-radio">南山店<input type="radio" name="region" value="南山店"></a>
+	            		<a href="" class="area-radio">罗湖店<input type="radio" name="region" value="罗湖店"></a>
+	            		<a href="" class="area-radio">宝安店<input type="radio" name="region" value="宝安店"></a>
+            		</div>
+            		<div>
+	            		<a href="" class="area-radio">龙岗店<input type="radio" name="region" value="龙岗店"></a>
+	            		<a href="" class="area-radio">龙华店<input type="radio" name="region" value="龙华店"></a>
+	            		<a href="" class="area-radio">其他<input type="radio" name="region" value="其他"></a>
+	            		<a></a>
+            		</div>
+            	</dd>
+            </dl>
+
+            <div class="dialog-tips" id="Qcode-dialog" style="display: none;">
+				<div class="dialog-Qcode-inner">
+					<div class="dialog-Qcode-content">
+						<p class="tips" id="Qcode-tips" style="display: none">请输入图形验证码</p>
+						<div class="Qcode-content-inner">
+							<input type="text" name="verCode" id="Qcode" placeholder="请输入图形验证码"/>
+							<img src="http://m.yyfq.com/consumer/ajax/verify/verifyCode" alt="" id="Qcode-img"/>
+							<span id="refresh-Qcode-btn"></span>
+						</div>
+					</div>
+					<div class="dialog-Qcode-button">
+						<a  class="confirm-btn btn  js-submit-button" id="js-confirm-btn">确认</a>
+						<a class="cancel-btn btn" id="js-cancel-btn">取消</a>
+					</div>
+				</div>
+			</div>
+			<input type="hidden" name="curQcode" id="curQcode" value=""/>
+
+            <div class="form-btn">
+            	<input type="submit" class="btn-submit js-submit-button" value="立即预约">
+            </div>
+		</form>
+	</div>
+	<div class="go-shop-phone">
+		<i class="go-shop-icon1"></i><i class="go-shop-icon2"></i>
+		<ul class="go-shop-phone-list">
+			<li>
+				<div class="img-box"><div class="phone1"></div></div>
+				<div class="go-shop-phone-explain">
+					<p>苹果 iPhone6 双4G版,16GB</p>
+					<div>￥<span>3930</span><i>再减<b>300</b></i></div>
+				</div>
+			</li>
+			<li>
+				<div class="img-box"><div class="phone2"></div></div>
+				<div class="go-shop-phone-explain">
+					<p>苹果 iPhone6Plus 全网通版,16GB</p>
+					<div>￥<span>4540</span><i>再减<b>300</b></i></div>
+				</div>
+			</li>
+			<li>
+				<div class="img-box"><div class="phone3"></div></div>
+				<div class="go-shop-phone-explain">
+					<p>苹果 iPhone6s 双4G版,16GB</p>
+					<div>￥<span>4570</span><i>再减<b>300</b></i></div>
+				</div>
+			</li>
+			<li>
+				<div class="img-box"><div class="phone4"></div></div>
+				<div class="go-shop-phone-explain">
+					<p>苹果 iPhone6s Plus 国行全网通,16GB</p>
+					<div>￥<span>5655</span><i>再减<b>300</b></i></div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="go-shop-explain">
+		<h2>活动规则&nbsp;</h2>
+		<p>1、活动时间：2015年12月29日-2016年1月15日；</p>
+		<p>2、每天前100名到店成功分期购买手机的用户，返现300元，首期非逾期还款后，直接转入还款银行卡账户；</p>
+		<p>3、举例说明：iPhone6s手机，低至4570元，日付7元，深圳多店办理，现场提货；</p>
+		<p>4、以上4款热销商品展示价格仅供参考，实际购买价格每日会出现略微浮动，属正常现象；</p>
+		<p>5、申请条件：年满18岁且小于55岁；</p>
+		<p>6、请携带身份证与银行卡到店面进行分期办理；</p>
+		<p>7、活动最终解释权归有用分期所有。</p>
+		
+		
+	</div>
+
+    <p class="go-shop-bottom">深圳天道计然金融服务有限公司</p>
+</div>
+
+
+
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/activity/go-shop.js"></script>
+
+
+
+#end
+#end

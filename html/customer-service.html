@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>在线客服联系方式</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/styles/pages/customer-service.scss"></head>
+<body>
+    <div class="main">
+        <h1 class="yellowBorder">关注公众号立享在线客服</h1>
+        <ul>
+            <li><span>1</span>快速查询账单详情，一目了然</li>
+            <li><span>2</span>多种支付方式还款，快捷便利</li>
+            <li><span>3</span>智能客服24 h在线，省时省心</li>
+        </ul>
+        <h1 class="blueBorder">关注方法</h1>
+        <p class="one"><span>1</span>截图保存二维码识别</p>
+        <div class="img-box">
+            <h5>手机截屏二维码，打开微信—"扫一扫"—相册</h5>
+            <img src="/static/images/service1.jpg" id="imgCode">
+            <!--<input type="button" id="btnSavePicture" value="点击保存图片"/>-->
+        </div>
+
+        <p class="two"><span>2</span>搜索公众号</p>
+        <div class="img-box">
+            <h5>打开微信，点击添加朋友-公众号，搜索"有用分期"</h5>
+            <!--<div>有用分期</div>-->
+            <!--<h6>长按复制</h6>-->
+            <img src="/static/images/service2.png" class="example">
+        </div>
+        <p class="one"><span>3</span>选择服务，进行咨询</p>
+        <div class="img-box">
+            <h5>关注后，进入对话框，回复关键词即可发起服务</h5>
+            <img src="/static/images/service3.jpeg" class="example">
+        </div>
+
+    </div>
+</body>
+    <script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+    <script src="/static/scripts/pages/common/common.js"></script>
+    <script>
+        $(function(){
+            $('body').removeClass('show-header');
+        })
+    </script>
+</html>

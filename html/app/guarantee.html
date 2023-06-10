@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/styles/pages/agreement2.scss">
+    <title>委托担保及授权书</title>
+</head>
+
+<body class="agreement-box">
+    <h1>委托担保及授权书</h1>
+    <p>根据本人签署的______________编号《借款服务合同》等相关协议（以下简称：“主协议”），本人向黑龙江省银鼎融资担保有限公司申请担保服务，为本人通过深圳天道计然金融服务有限公司申请的借款业务进行担保，担保金额以主协议约定为准，同意并不可撤销地授权：</p>
+    <p class="textIndent">（一）黑龙江省银鼎融资担保有限公司按照本委托担保书的约定代本人清偿主协议项下全部或部分债务的，自代偿之日起，黑龙江省银鼎融资担保有限公司有权向本人追偿为本人代偿的本金、利息、罚息、违约金和实现债权的其他相关费用，包括但不限于：</p>
+    <p class="textIndent">1、为本人代偿的本金、利息、罚息、违约金和相关费用；</p>
+    <p class="textIndent">2、黑龙江省银鼎融资担保有限公司向本人追偿债务而发生的一切费用；</p>
+    <p class="textIndent">3、本人违约产生的违约金、代偿资金占用费及黑龙江省银鼎融资担保有限公司全部经济损失等。</p>
+    <p class="textIndent">本人同意黑龙江省银鼎融资担保有限公司委托金融机构/第三方支付机构将上述追偿款项从本人账户、网络电子账户以及其它账户直接扣收。
+    </p>
+    <p class="textIndent">（二）黑龙江省银鼎融资担保有限公司有权向中国人民银行个人信用信息基础数据库查询或使用个人的信用报告、向公安部信息中心查询公民身份信息。</p>
+    <p class="textIndent">（三）黑龙江省银鼎融资担保有限公司按照本担保及授权书的约定代本人清偿主协议项下全部或部分债务的，自代偿之日起，黑龙江省银鼎融资担保有限公司有权向中国人民银行个人信用信息基础数据库上报为本人代偿的信息及本人逾期向黑龙江省银鼎融资担保有限公司债务偿还的信息。</p>
+    <p class="textIndent">（四）本委托担保书自本人书面同意签署时生效，书面同意的方式多样，如：书面的同意承诺、在线点击确认同意、采用数字证书的电子签章、签字确认等，只要本人以明确的方式表明接受本担保书约定即可，是否书面签字或同意方式的不同不影响担保书的法律效力，本人均不会以未书面签字或同意的方式不同为由否定担保书的效力。</p>
+    <p class="textIndent">（五）本人同意本委托担保书及与本委托担保书相关的其它协议和附件可采用数字证书进行签署。本人同意选择通过第三方CA认证机构申请数字证书，同意并授权深圳天道计然金融服务有限公司代本人向第三方CA认证机构提出申请并采用数字证书代为签署本委托担保书及与本委托担保书相关的其它协议和附件。本人同意采用数字证书签署与签字或盖章具有同等法律效力。</p>
+    <p class="section">&nbsp;</p>
+    <p>
+        <span>本人姓名：____________________________</span><br>
+        <span>证件名称及号码：身份证________________</span><br>
+    </p>
+    <p class="">&nbsp;</p>
+    <p>
+        <span>手机号：______________________________</span><br>
+        <span>签署日期：_____年_____月_____日 </span>
+    </p>
+
+</body>
+<script>
+    (function () {
+        var rem, dpr, time, doc = window.document,
+                docEl = doc.documentElement,
+                viewport = doc.querySelector('meta[name="viewport"]'),
+                zoomScale,
+                zoomScaleNum;
+        if (viewport) {
+            //console.warn("将根据已有的meta标签来设置缩放比例");
+            zoomScale = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+            if (zoomScale) {
+                zoomScaleNum = parseFloat(zoomScale[2]);
+                dpr = parseInt(1 / zoomScaleNum);
+            }
+        }
+        if (!dpr && !zoomScaleNum) {
+            // console.warn(“根据未设置meta标签来缩放比例”)
+            var os = (window.navigator.appVersion.match(/android/gi), window.navigator.appVersion.match(/iphone/gi)),
+                    dpr = window.devicePixelRatio;
+            dpr = os ? dpr >= 3 ? 3 : dpr >= 2 ? 2 : 1 : 1;
+            zoomScaleNum = 1 / dpr;
+        }
+        window.addEventListener("resize",
+                function () {
+                    clearTimeout(time);
+                    time = setTimeout(changeRem, 300);
+                }, false);
+
+        //改变基准rem
+        function changeRem() {
+            var docWidth = docEl.getBoundingClientRect().width;
+            // 540 1080P
+            // if(docWidth / dpr > 540){
+            //     docWidth = 540 * dpr;
+            // }
+            rem = docWidth / 360 * 16;
+            docEl.style.fontSize = rem + "px";
+        }
+
+        changeRem();
+    })();
+</script>
+
+</html>

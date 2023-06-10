@@ -1,0 +1,25 @@
+#set($title = "信用卡证明")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/external-trusts.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="main">
+    <ul class="card-list">
+        <li class="card">
+            <div class="card-name">$!{bank}</div>
+            <div class="card-no">$!{cardNum}</div>
+        </li>
+    </ul>
+
+    <div class="status-lamp-small"><span class="icon-lamp"></span>证明仅用于评估还款能力，我们不会存储和泄露你的信息。</div>
+</div>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/common/common.js"></script>
+
+#end
+#end

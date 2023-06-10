@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>申请问题帮助</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="/static/styles/pages/help.scss">
+    </head>
+    <body>
+        <div class="questions">
+            <div class="item" id="sq-1">
+                <h5 class="heading">
+                    <span class="icon icon-question-plus-minus"></span>申请分期付款要具备什么条件
+                </h5>
+                <div class="content">
+	                年龄在18-55周岁（18<=申请人的年龄<55），在当前工作岗位连续工作3个月以上，凭本人身份证、银行卡、手机就可直接办理。
+                </div>
+            </div>
+	        <div class="item" id="sq-2">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>照片不合格如何重新上传
+		        </h5>
+		        <div class="content">
+			        可通过微信将照片发送给我们的客服人员（微信服务号：有用分期服务）；或让服务经理协助发送邮件至有用分期后台邮箱。
+		        </div>
+	        </div>
+	        <div class="item">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>注册的时候收不到验证码怎么办
+		        </h5>
+		        <div class="content">
+			        联系客服可以查询。
+		        </div>
+	        </div>
+	        <div class="item">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>提示“授信次数超限”怎么办
+		        </h5>
+		        <div class="content">
+			        每个征信每天最多授信3次，若超过次数，则当天无法再操作。
+		        </div>
+	        </div>
+	        <div class="item">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>APP启动时弹窗提示需要开启权限
+		        </h5>
+		        <div class="content">
+			        安卓系统（需开启定位，通讯录，通话记录的权限），在设置-应用管理-权限管理-有用无忧app-权限详情，将“获取定位信息”、“获取通讯录”、“获取通话记录”权限设置为允许的状态
+			        Ios系统（需开启定位，通讯录权限），在设置-隐私-定位服务/通讯录权限详情页，找到有用无忧app，重新将这两个权限设置为允许的状态
+		        </div>
+	        </div>
+	        <div class="item">
+		        <h5 class="heading">
+			        <span class="icon icon-question-plus-minus"></span>分期协议
+		        </h5>
+		        <div class="content">
+			        首先，您需要清楚自己借了多少钱（我们将其称为“还款本金”）。其次，您应该知道从我公司借这笔钱分多长时间还清（月供期数），以及您应分期偿还给我们的费用。同时，您办理分期时支付的首付实际为您商品费用中的一部分，首付支付的越多，还款金额则会越少，相应每月还款金额则会越少。
+		        </div>
+	        </div>
+        </div>
+    </body>
+    <script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+    <script src="/static/scripts/pages/ucenter/help.js"></script>
+    <script>
+        $(function(){
+            $('body').removeClass('show-header');
+	        var targetL = location.href.split("#")[1];
+	        $("#" + targetL).trigger('click');
+        })
+    </script>
+</html>

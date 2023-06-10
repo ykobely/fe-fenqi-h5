@@ -1,0 +1,177 @@
+#set($title = "用户中心")
+
+#extends("../../layouts/main.vm")
+
+#block('head_meta')
+<link rel="stylesheet" type="text/css" href="/static/styles/pages/ucenter.scss">
+#end
+
+#block('body')
+#parse("../pages/common/_header.vm")
+<div class="ucenter">
+    <div class="user">
+        <div class="thumb">
+            <span>
+                <img src="/static/images/pic/ucenter-placeholder.png" alt="">
+            </span>
+        </div>
+        <div class="user-status">
+            <a href="/consumer/html/login">登录</a>
+            <a href="/consumer/html/register">注册</a>
+        </div>
+        <div class="user-info">
+            <p class="phone-num">$!{mobile}</p>
+            ## <div class="user-warn-tips">
+            ##     <span>未认证，不能进行分期购物哦～</span>
+            ## </div>
+        </div>
+    </div>
+    <div class="my-list #if(!$statusName) no-link #end">
+        #if($!statusName)
+            <a href="/consumer/h5/usercenter/myorder">
+        #elseif($cartStatus ==1)
+            <a href="/consumer/h5/goods/myCart">
+        #end
+            <dl>
+                <dt>
+                    <img src="/static/images/pic/icons-myList.png" alt="">
+                </dt>
+                <dd class="list">我的购物单</dd>
+                <dd class="tips">
+	                #if ($!statusName)
+	                    $!statusName
+	                #elseif($!cartStatus == 1)
+	                    订单未完成
+	                #else
+	                    竟然没有
+	                #end
+                    <!--#if ($contractStatus == 0)-->
+                        <!--待审核-->
+                    <!--#elseif ($contractStatus == 1)-->
+                        <!--审核中-->
+                    <!--#elseif ($contractStatus == 2 || $contractStatus == 42 || $contractStatus == 43 || $contractStatus == 44)-->
+                        <!--审核通过-->
+                    <!--#elseif ($contractStatus == 3)-->
+                        <!--合同激活-->
+                    <!--#elseif ($contractStatus == 50)-->
+                        <!--合同完结-->
+                    <!--#elseif ($contractStatus == 51)-->
+                        <!--审核未通过-->
+                    <!--#elseif ($contractStatus == 52)-->
+                        <!--撤销-->
+                    <!--#elseif ($contractStatus == 90)-->
+                        <!--资料待完善-->
+                    <!--#elseif ($contractStatus == 40)-->
+                        <!--已过期-->
+                    <!--#elseif ($contractStatus == 41)-->
+                        <!--已终止-->
+                    <!--#elseif ($cartStatus == 1)-->
+                        <!--订单未完成-->
+                    <!--#else-->
+                        <!--竟然没有-->
+                    <!--#end-->
+                </dd>
+            </dl>
+        #if($!statusName || $cartStatus == 1)
+            </a>
+        #end
+         
+    </div>
+    <div class="my-handle">
+        <div class="each-access">
+            <a href="/consumer/h5/resetPassword">
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/icons-updatePass.png" alt="">
+                    </dt>
+                    <dd>更改密码</dd>
+                </dl>
+            </a>
+        </div>
+        <div class="each-access">
+            <a href="/consumer/h5/report">
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/icons-sendMsg.png" alt="">
+                    </dt>
+                    <dd>意见反馈</dd>
+                </dl>
+            </a>
+        </div>
+    </div>
+    <div class="my-handle">
+        <div class="each-access">
+            <a href="#" class="js-link-qq">
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/icons-onlineKf.png" alt="">
+                    </dt>
+                    <dd>在线客服 (QQ: 4008005518)</dd>
+                </dl>
+            </a>
+        </div>
+        <div class="each-access">
+            <a href="tel:4008005518">
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/icons-phone.png" alt="">
+                    </dt>
+                    <dd>客服电话</dd>
+                </dl>
+            </a>
+        </div>
+        <div class="each-access">
+            <a href="/consumer/h5/questions">
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/icons-help.png" alt="">
+                    </dt>
+                    <dd>帮助中心</dd>
+                </dl>
+            </a>
+        </div>
+    </div>
+    <div class="my-handle">
+        <div class="each-access">
+            <a href="/consumer/h5/us?source=$!source">
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/icons-about.png" alt="">
+                    </dt>
+                    <dd>关于有用</dd>
+                </dl>
+            </a>
+        </div>
+        <div class="each-access">
+            <a href="#" class="js-logout-btn">
+                <dl>
+                    <dt>
+                        <img src="/static/images/pic/icons-logout.png" alt="">
+                    </dt>
+                    <dd>退出</dd>
+                </dl>
+            </a>
+        </div>
+    </div>
+</div>
+#parse("../pages/common/_nav.vm")
+<script>
+	function getValue(value) {
+		if (value == 0) {
+			return '';
+		}
+
+		return value;
+	}
+
+	var globalData = {
+		statusName: '$!statusName',
+		cartStatus: '$cartStatus'
+	};
+	console.log(globalData);
+</script>
+<script src="/static/scripts/libs/jquery-2.1.4.min.js"></script>
+<script src="/static/scripts/pages/ucenter/ucenter.js"></script>
+
+#end
+#end
